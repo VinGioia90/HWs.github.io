@@ -12,7 +12,7 @@ navbar:
   right:
      - text: "Poster"
         icon: fa-home
-        href: index.html
+        href: Poster.html
       - text: "Project"
       icon: fa-cubes 
       href: Project.html   # CHANGE HERE       
