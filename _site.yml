@@ -19,9 +19,9 @@ navbar:
       - text: "Research Team"
       icon: fa-users
       href: ResearchTeam.html   # CHANGE HERE    
-    - text: "Program"
+    - text: "References"
       icon: fa-newspaper-o
-      href: Program.html      # CHANGE HERE 
+      href: References.html      # CHANGE HERE 
 output:
   html_document:
     theme: spacelab
