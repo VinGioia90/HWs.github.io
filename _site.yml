@@ -3,7 +3,7 @@ output_dir: "."
 extra_css:
   - utilities/extra.css  # Adjust path as needed
 navbar:
-  title: "Heat Waves"                             # CHANGE HERE 
+  title: "On the Difference between Markov-Switching and Threshold-Based Approaches for Heat Wave Classification"                             # CHANGE HERE 
   type: inverse
   #left:
   #- text: "Home"
