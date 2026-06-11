@@ -1,9 +1,9 @@
-name: "MNEMET"                                # CHANGE HERE 
+name: "Heat Waves"                                # CHANGE HERE 
 output_dir: "."
 extra_css:
   - utilities/extra.css  # Adjust path as needed
 navbar:
-  title: "MNEMET"                             # CHANGE HERE 
+  title: "Heat Waves"                             # CHANGE HERE 
   type: inverse
   #left:
   #- text: "Home"
