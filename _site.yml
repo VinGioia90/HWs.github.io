@@ -10,9 +10,9 @@ navbar:
   #  icon: fa-home
   #  href: index.html
   right:
-   #  - text: "Poster"
-   #     icon: fa-home
-   #     href: Poster.html
+     - text: "Poster"
+        icon: fa-home
+        href: Poster.html
    #   - text: "Project"
    #   icon: fa-cubes 
    #   href: Project.html   # CHANGE HERE       
