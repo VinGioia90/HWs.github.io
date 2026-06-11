@@ -1,25 +1,25 @@
-name: "MNEMET"                                # CHANGE HERE 
+name: "Heat Waves"                                # CHANGE HERE 
 output_dir: "."
 extra_css:
   - utilities/extra.css  # Adjust path as needed
 navbar:
-  title: "MNEMET"                             # CHANGE HERE 
+  title: "Heat Waves"                             # CHANGE HERE 
   type: inverse
   #left:
   #- text: "Home"
   #  icon: fa-home
   #  href: index.html
   right:
-     - text: ""
+     - text: "Poster"
         icon: fa-home
         href: index.html
       - text: "Project"
       icon: fa-cubes 
       href: Project.html   # CHANGE HERE    
-      - text: "Research Team"
+      - text: "Contacts"
       icon: fa-users
       href: ResearchTeam.html   # CHANGE HERE    
-    - text: "Program"
+    - text: "References"
       icon: fa-newspaper-o
       href: Program.html      # CHANGE HERE 
 output:
