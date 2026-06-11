@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="ySr3xJu4gnF7ftsg4Dkd2W7vayj5QxolRvbAeU9v7dU" />
+
+<title>MNEMET Workshop</title>
+
+<script src="site_libs/header-attrs-2.4/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<!--<meta name="viewport" content="width=1024">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=0.5" />-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">      
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 20px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+<style type="text/css">
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  z-index: 1000;
+}
+
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+<style type = "text/css">
+
+      .content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+      
+.left-align {
+   text-align: left;
+} 
+
+      
+.main-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+       
+<style type="text/css">
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  z-index: 1000;
+}
+
+</style>
+       
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+<style>
+.navbar-center {
+  float: none;
+  margin: 0 auto;
+  display: flex;
+ /* table-layout: fixed; */
+  align-items: flex-start;
+  padding-left: 0;
+  margin: 0 auto;
+  width: fit-content;
+}
+.navbar-center > li {
+  float: none;
+  display: table-cell;
+  text-align: center;
+}
+
+       /* Menu verticale */
+.vertical-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.vertical-nav li {
+  float: none;
+  width: 100%;
+  text-align: left;
+}
+
+.vertical-nav li a {
+  display: block;
+  padding: 10px 15px;
+}
+</style>
+
+</head>
+
+      <head>
+  <style>
+    .workshop-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      font-size: 16px; /* ⬅️ Aggiunto: aumenta la dimensione del testo */     
+    }
+
+    .workshop-content ul {
+      padding-left: 20px;
+    }
+        
+    .workshop-content h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+      
+<body>
+
+<div class="container-fluid main-container">
+
+  <!-- Titolo in alto -->
+  <div class="text-center py-4" style="color: white;  background-color: #191970;">
+    <div style="font-size: 48px; font-weight: bold;">MNEMET</div>
+    <div style="font-size: 24px;">Final Workshop</div>
+  </div>   
+
+  <!-- Navigation bar sotto il titolo -->
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      
+      <!-- Bottone mobile -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Link del menu -->
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-center">
+          <li><a href="index.html"><span class="fa fa-home"></span> Home</a></li>
+          <li><a href="Project.html"><span class="fa fa-cubes"></span> Project</a></li>
+          <li><a href="ResearchTeam.html"><span class="fa fa-users"></span> Research Team</a></li>
+          <li><a href="Program.html"><span class="fa fa-newspaper"></span> Program</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+</div>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+</div>      
+
+<div id="header">
+
+</div>
+
+<div class="workshop-content">
+<h4> <p> <center> September 29th, 2025 </center>  </p> </h4>
+<h4> <p> <center> Department of Economics, Business, Mathematics and Statistics “B. de Finetti" </center> </p> </h4>
+<h4> <p> <center>  University of Trieste </center> </p> </h4> <br>
+
+  <p style="margin-top: 10px;">
+    The <strong>MNEMET (Modelling Non-standard data and Extremes in Multivariate Environmental Time series) final workshop</strong> aims to bring together young researchers and subject experts for exchanging the latest scientific advancements and ideas for future research in methodological and applied areas, including multivariate statistical modelling, spatial-temporal data analysis, time series modeling, and extreme value theory in environmental problems. 
+  </p> 
+  <p>
+    The MNEMET Research Team <!--of UniTS (Roberta Pappadà,  Gaetano Carmeci,  Vincenzo Gioia,  Giovanni Millo), UniBZ (Marta di Lascio, Selene Perazzini) and UniMI (Luca Rossini, Andrea Bastianin, Andrea Viselli)--> 
+         welcomes all those interested in participating in the workshop. The speakers and the talks are:
+  </p>
+  <!--<p>
+    In addition to the MNEMET Teams researchers, the confirmed invited speakers are:
+  </p>-->
+
+  <ul>
+    <li> <strong>Giada Adelfio</strong>, Università degli Studi di Palermo <br>  <em> Improving Point Process Modelling: Accounting for Local and Inhomogeneous Mark-Weighted Second-Order Statistics </em> </li>
+    <li> <strong>Luca Aiello</strong>, Università degli Studi di Bergamo <br> <em> Bayesian nonparametric clustering for spatio-temporal data, with an application to air pollution</em></li>
+    <li> <strong>Roberto Casarin</strong>, Università Ca’ Foscari di Venezia <br> <em> A Spatiotemporal Gamma Shot Noise Cox Process </em></li>
+    <li> <strong>Gioia Di Credico</strong>, Università degli Studi di Trieste <br> <em> Bayesian Markov-Switching Approaches to Heatwave Analysis </em></li>
+    <li> <strong>Fabrizio Durante</strong>, Università del Salento <br> <em> Semi-Supervised Clustering of Geo-Referenced Time Series with Copulas  </em></li>
+    <li> <strong>Vincenzo Gioia</strong>, Università degli Studi di Trieste <br> <em> Multivariate modeling of urban air pollutants </em></li>         
+    <li> <strong>Selene Perazzini</strong>, Libera Università di Bolzano-Bozen <br> <em> A copula-based cross-dependence coefficient for temporal data </em></li>         
+    <li> <strong>Ilaria Prosdocimi</strong>, Università Ca’ Foscari di Venezia <br> <em> Non-stationarities in extreme hourly precipitation over the Piave Basin, Northern Italy </em> </li>
+    <li> <strong>Francesco Ravazzolo</strong>, Libera Università di Bolzano-Bozen and BI Norwegian Business School <br> <em> Forecasting Oil Consumption: The Statistical Review of World Energy meets Machine Learning </em></li> 
+    <li> <strong>Andrea Viselli</strong>, Università degli Studi di Milano <br> <em> Modeling European Electricity Market Integration during turbulent times </em></li>     
+  </ul>
+
+  <p>
+    The one-day workshop will take place in the main campus of the <a href="https://portale.units.it"  target="_blank">University of Trieste</a> at the Department of Economics, Business, Mathematics and Statistics “B. de Finetti” (<a href="https://deams.units.it" target="_blank">deams.units.it</a>).
+  </p>
+
+  <p>
+    <strong>Opening and registration:</strong> 9:00 – 9:30<br>
+    <strong>Workshop end:</strong> around 4:30 PM<br>
+  </p>
+      
+  <p>
+      The <a href="Program.html"  target="_blank">Program</a> of the workshop is available. 
+   </p>    
+      
+  <p>
+    Please register using the <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqZjeSKL_ksR8m4zTz5xqa19G_7uRljBTNZv-XjKogBYze1g/viewform" target="_blank"> registration form</a>.
+  </p>
+
+</body>
+</html>
+</p>
+<p>Contact: 
+<a href="mailto:rpappada@units.it">rpappada@units.it</a></p>
+<p><br></p>
+
+
+<div style="text-align: center;">
+  <img src="loghi.png" alt="drawing" style="width: fit-content; max-width: 70%;" />
+</div>
+
+</p>
+<p> <strong>Funding</strong>: The MNEMET project received funding from the European Union Next-GenerationEU - National Recovery and Resilience Plan (NRRP) – MISSION 4 COMPONENT 2, INVESTIMENT 1.1 Fondo per il Programma Nazionale di Ricerca e Progetti di Rilevante Interesse Nazionale (PRIN) – CUP J53D23009170006.</p>
+<p><br></p>
+
+<center>
+<img src="funding.png" alt="drawing" style="width:1400px;"/>
+</center>
+</div>    
+
+
+</div>
+
+
+</div>
+
+<script>
+  $('.dropdown-toggle').click(function() {
+    console.log("Dropdown clicked!");
+  });
+</script>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<script>
+$(document).ready(function() {
+  $('.dropdown-submenu > a').on("click", function(e) {
+    e.preventDefault();
+    var submenu = $(this).next('.dropdown-menu');
+    $('.dropdown-submenu .dropdown-menu').not(submenu).hide();
+    submenu.toggle();
+    e.stopPropagation();
+  });
+
+  $(document).on("click", function() {
+    $('.dropdown-submenu .dropdown-menu').hide();
+  });
+});
+</script>
+
+</body>
+</html>
