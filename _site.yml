@@ -10,15 +10,15 @@ navbar:
   #  icon: fa-home
   #  href: index.html
   right:
-     - text: "Poster"
-        icon: fa-home
-        href: Poster.html
-      - text: "Project"
-      icon: fa-cubes 
-      href: Project.html   # CHANGE HERE       
-    - text: "References"
-      icon: fa-newspaper-o
-      href: References.html      # CHANGE HERE
+   #  - text: "Poster"
+   #     icon: fa-home
+   #     href: Poster.html
+   #   - text: "Project"
+   #   icon: fa-cubes 
+   #   href: Project.html   # CHANGE HERE       
+   # - text: "References"
+   #   icon: fa-newspaper-o
+   #   href: References.html      # CHANGE HERE
     - text: "Contacts"
       icon: fa-users
       href: Contacts.html   # CHANGE HERE 
