@@ -10,18 +10,18 @@ navbar:
   #  icon: fa-home
   #  href: index.html
   right:
-     - text: ""
+     - text: "Poster"
         icon: fa-home
         href: index.html
       - text: "Project"
       icon: fa-cubes 
-      href: Project.html   # CHANGE HERE    
-      - text: "Research Team"
-      icon: fa-users
-      href: ResearchTeam.html   # CHANGE HERE    
+      href: Project.html   # CHANGE HERE       
     - text: "References"
       icon: fa-newspaper-o
-      href: References.html      # CHANGE HERE 
+      href: References.html      # CHANGE HERE
+    - text: "Contacts"
+      icon: fa-users
+      href: Contacts.html   # CHANGE HERE 
 output:
   html_document:
     theme: spacelab
