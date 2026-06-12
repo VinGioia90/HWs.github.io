@@ -16,6 +16,9 @@ navbar:
       - text: "Project"
       icon: fa-cubes 
       href: Project.html   # CHANGE HERE    
+      - text: "Model"
+      icon: fa-cubes 
+      href: Model.html   # CHANGE HERE   
       - text: "References"
       icon: fa-newspaper-o
       href: References.html      # CHANGE HERE  
