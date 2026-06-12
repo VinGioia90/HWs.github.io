@@ -21,7 +21,7 @@ navbar:
       href: References.html      # CHANGE HERE  
       - text: "Contacts"
       icon: fa-users
-      href: ResearchTeam.html   # CHANGE HERE    
+      href: Contacts.html   # CHANGE HERE    
 output:
   html_document:
     theme: spacelab
