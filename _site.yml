@@ -11,7 +11,7 @@ navbar:
   #  href: index.html
   right:
      - text: "Poster"
-        icon: fa-file-image-o
+        icon: fa-map-o
         href: index.html
       - text: "Empirical"
       icon: fa-cubes 
