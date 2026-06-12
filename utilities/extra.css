@@ -86,3 +86,21 @@ details > summary > p:only-child {
 pre code {
   padding: 0;
 }
+
+.member {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.member-text {
+    flex: 1;
+}
+
+.member-photo img {
+    width: 180px;
+    height: auto;
+    border-radius: 10px; /* opzionale */
+}
