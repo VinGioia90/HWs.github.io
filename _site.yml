@@ -13,7 +13,7 @@ navbar:
      - text: "Poster"
         icon: fa-home
         href: index.html
-      - text: "Project"
+      - text: "Empirical"
       icon: fa-cubes 
       href: Project.html   # CHANGE HERE    
       - text: "Model"
