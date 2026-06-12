@@ -16,12 +16,12 @@ navbar:
       - text: "Project"
       icon: fa-cubes 
       href: Project.html   # CHANGE HERE    
+      - text: "References"
+      icon: fa-newspaper-o
+      href: References.html      # CHANGE HERE  
       - text: "Contacts"
       icon: fa-users
       href: ResearchTeam.html   # CHANGE HERE    
-    - text: "References"
-      icon: fa-newspaper-o
-      href: References.html      # CHANGE HERE 
 output:
   html_document:
     theme: spacelab
