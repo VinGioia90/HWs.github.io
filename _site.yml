@@ -14,8 +14,8 @@ navbar:
         icon: fa-home
         href: index.html
       - text: "Empirical"
-      icon: fa-cubes 
-      href: Project.html   # CHANGE HERE    
+      icon: fa-thermometer-full
+      href: Perkins.html   # CHANGE HERE    
       - text: "Model"
       icon: fa-cubes 
       href: Model.html   # CHANGE HERE   
