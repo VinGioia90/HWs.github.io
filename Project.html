@@ -398,11 +398,19 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>-->
-       
+ <p>
+Test formula: $x^2+y^2=z^2$
+</p>
+
+$$
+\frac{1}{1+x}
+$$
+
 <script>
 window.MathJax = {
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']]
   }
 };
 </script>
@@ -412,5 +420,7 @@ id="MathJax-script"
 async
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
+       
+
 </body>
 </html>
