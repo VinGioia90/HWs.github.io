@@ -6,7 +6,9 @@
   transform: translateX(-50%);
 }
 
-
+.navbar-default {
+    background-color: #007A3D;
+}
 .navbar {
   background-color: #007A3D;
   background: #007A3D;
