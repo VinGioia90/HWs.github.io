@@ -280,28 +280,6 @@ $(document).ready(function () {
 
 </div>
     
-<!--<div class="container-fluid main-container">
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="min-height: 160px; padding-top: 10px; padding-bottom: 30px;">
-  <div class="container" style="max-width: 100%;">
-                  <div class="navbar-brand mx-auto d-block text-center" style="float: none; padding: 20px 15px; line-height: 1.25; color: white;">
-  <div style="font-size: 48px; font-weight: bold;">MNEMET</div>
-  <div style="font-size: 24px;">Final Workshop</div>
-</div>
-    </div>
-    <div class="navbar-header text-center" style="width: 100%;">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>   
-    <div id="navbar" class="navbar-collapse collapse">
-<ul class="nav navbar-nav navbar-center">
-<li> <a href="index.html"> <span class="fa fa-home"></span> </a></li>
-    <li><a href = "Project.html"> <span class="fa fa-cubes"></span>  Project  </a></li>
-    <li> <a href="ResearchTeam.html"> <span class="fa fa-paper-plane"></span> Research Team </a> </li>
-  </ul>-->
-
 
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -317,10 +295,6 @@ $(document).ready(function () {
 <div class="workshop-content">
 A popular definition of atmospheric heat waves relies on the empirical quantile-based  approach of perkins2013, which is implemented in the heatwaveR R package heatwaveR, heatwaveRpackage. The proposal by perkins2013 is based on fischer2010consistent and differs only in the temporal extension considered. These authors define a heat wave as a period of at least three consecutive days during which the temperature stays above a time-varying threshold depending on observed temperatures for all the years in the sample in a mobile window. That is, let $y_{d,h}$ be the temperature at day $d$ of year $h$, and $u_d$ the 0.9 quantile threshold considering a 15-day window and all the years in the sample, then, the quantile threshold is $u_d = q_{0.9}(\{y_{j,h}: h_{s}\leq h \leq h_e, |d-j| \leq D\})$, with $q_{0.9}(\{\cdot\})$ the 90-th percentile, with $D$ the half-window ($D=7$), and with $h_s$ and $h_e$ representing the first and last year of observations, respectively. This approach is at the core of the proposal in \cite{hobday2016} for characterising marine heat waves, which also suggests that two heat wave periods separated by a small gap can be considered a single unique heat wave period.\\
 By exploiting the probabilistic structure of the Markov-switching model, we explore heat waves characterisation as prolonged periods during which the temperature stays in the hottest regime (the regime having the highest average temperature).
-More precisely, we propose a classification rule that considers a period as a heat wave if the probability of being in the $K$-th regime is greater than the probability of being in any other regime for at least $g$ consecutive days. In formulas, we consider a period as a heat wave if $\hat\pi^{t+i}_K  > \hat\pi^{t+i}_k$, for all $k \in \{1, \ldots, K-1\}$ and with $i \in \{0,\ldots,g-1\}$ within a season, where $\pi^t_k$, for $k =1, \ldots, K$, are the filtered state probabilities in equation (\ref{eq:filtProb}). Alternatively, it is possible to classify heat waves using the  state-membership $s_t$ generated from a multinomial distribution with probability vector $\hat{\boldsymbol{\pi}}^t$. In this case, we consider a period as a heat wave if $s_{t+i} = K$ for $i \in \{0,\ldots, g-1\}$. These classification rules can be used to describe the frequency and duration of heat waves over time. \\
-In addition, the proposed Bayesian Markov-switching model is able to generate temperature trajectories that mimic the time series behaviour of the observed ones and allow for both observed and unobserved (through the latent process) local variability, which determines the membership in either typical or abnormal seasonal temperature patterns. In particular, the probability of being in a certain regime can be used to generate state-membership and, consequently, temperature trajectories, given the state and covariate information, as described in Algorithm 1 %\ref{MSpred} 
-of the Supplementary Material (henceforth SM). On the simulated temperature trajectories, it is possible to apply several definitions of heat waves and use them to explore aspects related to observed climate conditions (and scenario-based projections), as in \cite{shaby2016}. 
-In particular, we compare the results with those obtained using the approach of perkins2013.
 <!--<header>
         <h1>MNEMET Project</h1>
         <p><strong>Grant:</strong> 20223CEZSR</p>
