@@ -315,6 +315,16 @@ $(document).ready(function () {
 <p><br>   </p>  
 
 <div class="workshop-content">
+<figure>
+    <img src="images/HMM.png"
+         alt="Graphical representation of the Markov-switching model"
+         style="max-width:100%; height:auto;">
+
+    <figcaption>
+        Graphical representation of the Markov-switching model.
+    </figcaption>
+</figure>
+       
 A popular definition of atmospheric heat waves relies on the empirical quantile-based  approach of perkins2013, which is implemented in the heatwaveR R package heatwaveR, heatwaveRpackage. The proposal by perkins2013 is based on fischer2010consistent and differs only in the temporal extension considered. These authors define a heat wave as a period of at least three consecutive days during which the temperature stays above a time-varying threshold depending on observed temperatures for all the years in the sample in a mobile window. That is, let $y_{d,h}$ be the temperature at day $d$ of year $h$, and $u_d$ the 0.9 quantile threshold considering a 15-day window and all the years in the sample, then, the quantile threshold is $u_d = q_{0.9}(\{y_{j,h}: h_{s}\leq h \leq h_e, |d-j| \leq D\})$, with $q_{0.9}(\{\cdot\})$ the 90-th percentile, with $D$ the half-window ($D=7$), and with $h_s$ and $h_e$ representing the first and last year of observations, respectively. This approach is at the core of the proposal in \cite{hobday2016} for characterising marine heat waves, which also suggests that two heat wave periods separated by a small gap can be considered a single unique heat wave period.\\
 By exploiting the probabilistic structure of the Markov-switching model, we explore heat waves characterisation as prolonged periods during which the temperature stays in the hottest regime (the regime having the highest average temperature).
 More precisely, we propose a classification rule that considers a period as a heat wave if the probability of being in the $K$-th regime is greater than the probability of being in any other regime for at least $g$ consecutive days. In formulas, we consider a period as a heat wave if $\hat\pi^{t+i}_K  > \hat\pi^{t+i}_k$, for all $k \in \{1, \ldots, K-1\}$ and with $i \in \{0,\ldots,g-1\}$ within a season, where $\pi^t_k$, for $k =1, \ldots, K$, are the filtered state probabilities in equation (\ref{eq:filtProb}). Alternatively, it is possible to classify heat waves using the  state-membership $s_t$ generated from a multinomial distribution with probability vector $\hat{\boldsymbol{\pi}}^t$. In this case, we consider a period as a heat wave if $s_{t+i} = K$ for $i \in \{0,\ldots, g-1\}$. These classification rules can be used to describe the frequency and duration of heat waves over time. \\
