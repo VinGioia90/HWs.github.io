@@ -293,17 +293,25 @@ $(document).ready(function () {
 <p><br>   </p>  
 
 <div class="workshop-content">
-A popular definition of atmospheric heat waves relies on the empirical quantile-based  approach of <a href="References.html"  target="_blank">Perkins and Alexander (2013)</a>, 
-which is implemented in the heatwaveR R package <a href="References.html"  target="_blank"> Schlegel and Smit (2018, 2021)</a>. 
-The proposal by <a href="References.html"  target="_blank">Perkins and Alexander (2013)</a> is based on <a href="References.html"  target="_blank">Fischer and Sch<code>{\"a}</code>r, (2010)</a>   
-       and differs only in the temporal extension considered. These authors define a heat wave as a period of at least three consecutive days during which the temperature stays 
-       above a time-varying threshold depending on observed temperatures for all the years in the sample in a mobile window. 
-       That is, let $y_{d,h}$ be the temperature at day $d$ of year $h$, and $u_d$ the 0.9 quantile threshold considering a 15-day window and all the years in the sample, 
-       then, the quantile threshold is $u_d = q_{0.9}(\{y_{j,h}: h_{s}\leq h \leq h_e, |d-j| \leq D\})$, with $q_{0.9}(\{\cdot\})$ the 90-th percentile, with $D$ the half-window ($D=7$), 
-       and with $h_s$ and $h_e$ representing the first and last year of observations, respectively. 
-       This approach is at the core of the proposal in  <a href="References.html"  target="_blank"> Hobday et al. (2016, 2018)</a> for characterising marine heat waves, 
-       which also suggests that two heat wave periods separated by a small gap can be considered a single unique heat wave period.
+ Heat waves are loosely defined as prolonged periods of extremely high temperatures.      
+ A popular definition of heat waves relies on the empirical quantile-based  approach of <a href="References.html"  target="_blank">Perkins and Alexander (2013)</a>,  that 
+ define a heat wave as a period of at least three consecutive days during which the temperature exceeds a seasonally varying climatological threshold.       
+ The approach is implemented in the heatwaveR R package <a href="References.html"  target="_blank"> Schlegel and Smit (2018, 2021)</a> and 
+ is based on <a href="References.html"  target="_blank">Fischer and Sch<code>{\"a}</code>r, (2010)</a>, only differing  in the temporal extension considered. 
+ Furthermore, <a href="References.html"  target="_blank"> Hobday et al. (2016, 2018)</a> exploit this approach for characterising marine heat waves.      
 
+ The quantile-based threshold is computed using a moving-window approach applied to the observed temperatures across all years in the sample and is year-invariant, that is 
+    $$u_{d,x} = q_{x}(\{y_{j,h}: h_{s}\leq h \leq h_e, |d-j| \leq D\})$$
+ where       
+ <ul>
+    <li> $y_{d,h}$: temperature at day $d$ of year $h$ </li>
+    <li> $q_{x}(\cdot)$: quantile of order $x \in (0,1)$ </li>       
+    <li> $D$: half-window </li>    
+    <li> $h_s$ and $h_e$: first and last year of observations  </li>    
+ </ul>          
+
+The moving-window is usually set to 15 days ($D=7$) and the common choice for the quantiles are 0.85, 0.90, and 0.95. The latter determines the severity of the detected events, 
+with higher thresholds identifying fewer but more extreme episodes.   
 </div>
 
 </div>
