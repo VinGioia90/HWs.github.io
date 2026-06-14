@@ -294,10 +294,10 @@ $(document).ready(function () {
 <p>  
 
 <div class="workshop-content">
-<p> Markov-switching models represent a flexible modelling framework in which an unobserved state variable determines the membership of observations to distinct regimes. 
+<p> Markov-switching (MS) models represent a flexible modelling framework in which an unobserved state variable determines the membership of observations to distinct regimes. 
 Conditional on the regime, the data-generating mechanism can be described using relatively simple stochastic models. 
 For comprehensive treatments of Markov-switching models, see  <a href="References.html"  target="_blank"> Frühwirth-Schnatter (2006)</a> and 
-       <a href="References.html"  target="_blank"> Zucchini et al. (2017)</a>. The </p>
+       <a href="References.html"  target="_blank"> Zucchini et al. (2017)</a>. The picture below is a schematic representation of the Markov-switching model.</p>
 <br>         
 
        
@@ -309,14 +309,29 @@ For comprehensive treatments of Markov-switching models, see  <a href="Reference
 
 </figure>
 </center>
+
+<br> <br> <br>
+
+
+The  MS model is specified by two processes: 
+ <ul>
+    <li> <strong>Latent stochastic process</strong>:  $\{S_t\}_{t \geq 0}$, with $S_t\in\{1,2, \ldots, K\}$, with $K$ the number of states/regimes</li>
+    <li> <strong>Observable stochastic process</strong>: $\{Y_t\}_{t \geq 1}$, whose realizations are $y_t$, for $t=1, \ldots, T$</li>       
+ <ul>        
+
+
+        
+<strong>Latent stochastic process</strong>
+We assume a latent process ruled by a first-order Markov chain structure with homogeneous transition probabilities. In formulas, the process is specified through 
+$\delta_{jk} = {\rm Pr}\left(S_t=k|S_{t-1}=j\right)$, for $j,k = 1, \ldots, K$, that are the entries of the stichastic $K \times K$ transition probability matrix $\boldsymbol \Delta$. 
+
+In this work, only transitions between adjacent regimes are allowed, that is  $\delta_{jk}\ne 0$ if and only if $j = 1,\ldots, K,$ and $k \in \omega_j$, with $\omega_j = \{k: \max(1, j-1) \leq k \leq \min(j+1, K)\}$. Further, the non-zero entries of $\boldsymbol \Delta$ are parametrised using the (multi-) logit link function as $\nu_{jk} = {\rm logit}(\delta_{jk})$, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$, with $\tilde \omega_j = \omega_j \setminus \{j\}$.
+
+Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi_0$, with $\pi_{0k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$.  
+
        
+<strong>Observable stochastic process</strong>
 
-
-By exploiting the probabilistic structure of the Markov-switching model, we explore heat waves characterisation as prolonged periods during which the temperature stays in the hottest regime (the regime having the highest average temperature).
-More precisely, we propose a classification rule that considers a period as a heat wave if the probability of being in the $K$-th regime is greater than the probability of being in any other regime for at least $g$ consecutive days. 
-In formulas, we consider a period as a heat wave if $\hat\pi^{t+i}_K  > \hat\pi^{t+i}_k$, for all $k \in \{1, \ldots, K-1\}$ and with $i \in \{0,\ldots,g-1\}$ within a season, where $\pi^t_k$, for $k =1, \ldots, K$, are the filtered state probabilities in equation (\ref{eq:filtProb}). 
-Alternatively, it is possible to classify heat waves using the  state-membership $s_t$ generated from a multinomial distribution with probability vector $\hat{\boldsymbol{\pi}}^t$. 
-In this case, we consider a period as a heat wave if $s_{t+i} = K$ for $i \in \{0,\ldots, g-1\}$. These classification rules can be used to describe the frequency and duration of heat waves over time. \\
 
 
 
