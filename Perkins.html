@@ -314,7 +314,16 @@ $(document).ready(function () {
 The moving-window is usually set to 15 days ($D=7$) and the common choice for the quantiles are 0.85, 0.90, and 0.95. The latter determines the severity of the detected events, 
 with higher thresholds identifying fewer but more extreme episodes.  </p>
 
-As an illustration, the 
+As an illustration of the empirical quantile-based approach, the figure below represent the daily maximum temperatures (May–September) over 30 years (1995-2024) for Tokyo. 
+The red dotted line represents the 90th percentile threshold. The shaded band highlights the 15-day moving window used to compute the threshold. 
+The histogram shows the temperature distribution within that window, with the dashed line marking the 90th percentile threshold.       
+<center>
+<figure>
+    <img src="images/Perkins.png"
+         alt="Graphical representation of the Markov-switching model"
+         style="max-width:100%; height:auto;">
+</figure>
+</center>       
 </div>
 
 </div>
