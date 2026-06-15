@@ -448,33 +448,36 @@ with $\mathcal{I}_{t}$ the information available up to time $t$, and $\mathcal{\
        
 <p><strong>Priors</strong></p> 
        
-The yearly random effects are build hierarchically as 
+<p>The yearly random effects are build hierarchically as 
        $$\mu_{k,year(t)} = \mu_k + \sigma_{k,year} z_{k,year}$$
  where 
   <ul>
     <li> $\mu_1 \sim mathcal{N}({\rm mean}(\mathbf y_{(1)}, 1)$ </li>
     <li> $\mu_k = \mu_{k-1} + delta_{k-1}$, with $\delta_{k-1} \sim \mathcal{N}^{+}(0,1)$, for $k in \{2, \ldots, K\}$</li>
     <li> $\sigma_{year} \sim t^{+}_3(0,1)$, for $k \in \{\1, \ldots, K\}$ </li>
-     <li> $z_{k,year} \sim \mathcal{N}(0,1)$, for $k \in \{\1, \ldots, K\}$ </li>     
+     <li> $z_{k,year} \sim \mathcal{N}(0,1)$, for $k \in \{\1, \ldots, K\}$ </li>     </p> 
   </ul>       
 
 <br> <br>   
 
- For the remaining model parameters, we set:
+ <p>For the remaining model parameters, we set:
   <ul>
     <li>$\gamma_k \sim \mathcal{N}(\log(sd(\mathbf{y}_{(k)})), 0.5)$ </li>
     <li>$\nu_{jk} \sim \mathcal{N}(-1,0.5)$, for $j = 1, \ldots, K$, $ k \in \tilde \omega^{(l)}_j$, with $l\in \{1,2\}$</li>
-  </ul>      
+  </ul>     </p>  
 
 <br> <br>   
 
-Notation used above: 
+<p>Notation used above: 
   <ul>
     <li>  $\mathbf{y}_{(k)}$ is such that  $\mathbf {y}_{(k)} = \{y_t \in \mathbf{y}: Q_{(k-1)/K} (\mathbf {y}) \leq y_t \leq Q_{k/K} (\mathbf {y})\}$, 
            with $Q_{h}(\mathbf y)$ the quantile of order $h\in (0,1)$ of $\mathbf y = (y_1, \ldots, y_T)^\top$ </li>
     <li> $\mathcal{N}^{+}(a,b)$: truncated (at zero) normal distribution, with location $a$ and scale $b$</li> 
     <li> $t^{+}_\nu(a,b)$: truncated (at zero) Student-t distribution with $\nu$ degrees of freedom, with location $a$ and scale $b$</li>
-  </ul>
+  </ul></p> 
+
+
+       
 </div>
 
 </div>
