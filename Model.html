@@ -427,15 +427,22 @@ During the estimation process, the scale parameter are parametrised via $\log(\s
 <br> <br>   
        
 <p><strong>Bayesian Inference</strong></p> 
- We carry out Bayesian inference on $\boldsymbol \beta = (\boldsymbol \mu^\top_{1, year},\mathbf u^\top_1, \ldots, \boldsymbol \boldsymbol \mu^\top_{K, year}, \mathbf u_K, {\boldsymbol \gamma}^\top, {\boldsymbol \nu}^\top)^\top\,$
-Let $\boldsymbol \beta = (\boldsymbol \alpha^\top_1,\mathbf u^\top_1, \ldots, \boldsymbol \alpha^\top_K, \mathbf u_K, {\boldsymbol \gamma}^\top, {\boldsymbol \nu}^\top)^\top\,$ be the parameter vector, with $\boldsymbol \alpha_j = (\alpha_{j1}, \alpha_{j2})$ and  $\mathbf u_j = (u_{j1}, \ldots, u_{jr})$, and where the vectors ${\boldsymbol \gamma}$ and ${\boldsymbol \nu}$ includes the $\gamma_j$ and $\nu_{jk}$ parameters, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$. Then, let $\mathcal{I}_{t}$ be the information available up to time $t$, and $\mathcal{\tilde I}_{t}= \mathcal{I}_{t} \setminus \{y_t\}$. Following \cite{hamilton1994}, the log-likelihood is
+<p>We carry out Bayesian inference on the parameter vector 
+$\boldsymbol \beta = (\boldsymbol \mu^\top_{1, year},\mathbf u^\top_1, \ldots, \boldsymbol \boldsymbol \mu^\top_{K, year}, \mathbf u_K, {\boldsymbol \gamma}^\top, {\boldsymbol \nu}^\top)^\top\,$
+with $\boldsymbol \mu_{k, year} = (\mu_{k, 1}, \ldots, \mu_{k, #year})$ and  $\mathbf u_k = (u_{k1}, \ldots, u_{kr})$, for $k = 1, \ldots, K$; while the vectors ${\boldsymbol \gamma}$ and 
+${\boldsymbol \nu}$ includes the $\gamma_j$ and $\nu_{jk}$ parameters, for $j = 1,\ldots, K$, and $k \in \tilde \omega^{(l)}_j$, $l \in \{1, 2\}$.</p> 
+
+<br>
+       
+Following  <a href="References.html"  target="_blank"> Hamilton (1994)</a>, the log-likelihood is
 \begin{equation}\label{eq:llik}
 \ell(\boldsymbol \beta)=\sum_{t=1}^{T} {\rm log} f_{Y_t}(y_t|{\mathcal{\tilde I}}_{t}; \boldsymbol \beta)=\displaystyle \sum_{t=1}^{T}{\rm log}\sum_{j=1 }^{K} \sum_{k \in \omega_j} \delta^{t}_{jk} \pi^{t-1}_{j} f_{Y_t|S_t}(y_t|s_t=k; \mathbf X_{t\cdot},  \boldsymbol \beta_{k}) \,, \nonumber
 \end{equation}
-where $\pi^{t}_{j} = {\rm Pr}(S_t=j| \mathcal{I}_{t};  \boldsymbol \beta)$ are the filtered state probabilities, that is,
+where  $\pi^{t}_{j} = {\rm Pr}(S_t=j| \mathcal{I}_{t};  \boldsymbol \beta)$ are the filtered state probabilities, that is,
 \begin{eqnarray*}\label{eq:filtProb} 
 \pi^{t}_{j} =  \sum_{k \in \omega_j}^{} \delta^{t}_{kj} \pi^{t-1}_{k} f_{Y_t|S_t}(y_t|s_t=j; \mathbf X_{t\cdot},  \boldsymbol \beta_{j}) \big/ f_{Y_t}(y_t| \mathcal{\tilde  I}_{t}; \boldsymbol \beta)\,, \quad j=1, \ldots, K,
 \end{eqnarray*}        
+Then, let $\mathcal{I}_{t}$ be the information available up to time $t$, and $\mathcal{\tilde I}_{t}= \mathcal{I}_{t} \setminus \{y_t\}$.
 </div>
 
 </div>
