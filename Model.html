@@ -406,10 +406,26 @@ with $\tilde \omega^{(l)}_j = \omega^{(l)}_j \setminus \{j\}$, and $l\in \{1,2\}
 
        
 <p><strong>Observable stochastic process</strong></p>
+For the observable process $\{Y_t\}_{t \geq 1}$, we assume that (i) the $Y_t$'s are conditionally independent given $S_t$ and the covariate information $\mathbf x_t$, and 
+       (ii) the conditional (to the state) distribution follows a Normal distribution $Y_t|S_t=k; \mathbf{x}_t \sim \mathcal{N}(\mu_{kt},\sigma_{k})$,  for $k=1, \ldots, K$.
+We let the regime-specific location parameters $\mu_{kt}$ to vary as a function of the covariate, while the scale parameters $\sigma_k$ to be covariate-free,  for $k=1, \ldots, K$.   
 
+In perticular the  location parameters $\mu_{kt}$ are modelled in a semi-parametric way as        
+       
+\begin{equation} \label{eq:lpGENERAL}
+\mu_{kt} = \mu_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,
+\end{equation}
+where 
+ <ul>
+    <li> $\mu_{k,year(t)}$: random effects per year </li> 
+    <li> \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}: seasonality component ($b_i$ are B-spline bases with derivative-based penalties of dimension $r$ and $\text{doy}$ is the day of the year) </li>    
+ </ul>     
 
+During the estimation process, the scale parameter are parametrised via $\log(\sigma_k)=\gamma_k$. 
 
-
+<br> <br>   
+       
+<p><strong>Bayesian Inference</strong></p> 
 </div>
 
 </div>
