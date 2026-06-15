@@ -314,11 +314,11 @@ For comprehensive treatments of Markov-switching models, see  <a href="Reference
 
 
 
-<p> The  MS model is specified by two processes: </p>
+<p> The  MS model is specified by two processes:
  <ul>
-    <li> <strong>Latent stochastic process</strong>:  $\{S_t\}_{t \geq 0}$, with $S_t\in\{1,2, \ldots, K\}$, with $K$ the number of states/regimes</li>
+    <li> <strong>Latent stochastic process</strong>:  $\{S_t\}_{t \geq 0}$, with $S_t\in\{1,2, \ldots, K\}$, where $K$ is the number of states/regimes</li>
     <li> <strong>Observable stochastic process</strong>: $\{Y_t\}_{t \geq 1}$, whose realizations are $y_t$, for $t=1, \ldots, T$</li>       
- <ul>        
+ <ul>  </p>       
 <br> <br>
 
         
@@ -339,7 +339,7 @@ More precisely, we consider:
 <h4><code>TPM1 model</code></h4>
 
 <p>
-Only allowing transitions among adjacent regimes, that is $\delta^{(1)}_{jk}\neq 0$ if and only if $j=1,\ldots,K, \qquad k\in\omega^{(1)}_j$, with  $\omega^{(1)}_j= \{k:\max(1,j-1)\le k\le \min(j+1,K)\}$.
+Only allowing transitions among adjacent regimes, that is $\delta^{(1)}_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(1)}_j$, with  $\omega^{(1)}_j= \{k:\max(1,j-1)\le k\le \min(j+1,K)\}$.
 
 This leads to
 </p>
@@ -365,7 +365,7 @@ $$
 <h4><code>TPM2 model</code></h4>
 
 <p>
-Allowing transitions among regimes with a maximum distance of two steps, that is $\delta^{(2)}_{jk}\neq 0$ if and only if $j=1,\ldots,K, \qquad k\in\omega^{(2)}_j$, with
+Allowing transitions among regimes with a maximum distance of two steps, that is $\delta^{(2)}_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(2)}_j$, with
 $\omega^{(2)}_j= \{k:\max(1,j-2)\le k\le \min(j+2,K)\}$.
 
 This leads to
@@ -397,14 +397,14 @@ $$
 </div>
         
 <br> <br>        
-During the estimation process, the transition probabilities are modelled via (multi-)logit link function, 
+<p>During the estimation process, the transition probabilities are modelled via (multi-)logit link function, 
 that is $\nu^{(l)}_{jk} = {\rm logit}\left(\delta^{(l)}_{jk} \right)$, for $j = 1,\ldots, K$, and $k \in \tilde \omega^{(l)}_j$, 
-with $\tilde \omega^{(l)}_j = \omega^{(l)}_j \setminus \{j\}$, and $l\in \{1,2\}$. \\
+with $\tilde \omega^{(l)}_j = \omega^{(l)}_j \setminus \{j\}$, and $l\in \{1,2\}$. </p>
         
-         
+<br> <br>         
 
        
-<strong>Observable stochastic process</strong>
+<p><strong>Observable stochastic process</strong></p>
 
 
 
