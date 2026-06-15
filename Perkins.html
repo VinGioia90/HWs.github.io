@@ -268,9 +268,9 @@ $(document).ready(function () {
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-center text-center">
           <li><a href="index.html"><span class="fa fa-home"></span> Poster</a></li>
-          <li><a href="Perkins.html"><span class="fa fa-thermometer-full"></span> Empirical</a></li>
+          <li><a href="Perkins.html"><span class="fa fa-line-chart"></span> Empirical</a></li>
           <li><a href="Model.html"><span class="fa fa-cubes"></span> MS Model</a></li>     
-          <li><a href="Results.html"><span class="fa fa-newspaper"></span> Results</a></li>         
+          <li><a href="Results.html"><span class="fa fa-thermometer-full"></span> Results</a></li>         
           <li><a href="References.html"><span class="fa fa-newspaper"></span> References</a></li>    
           <li><a href="Contacts.html"><span class="fa fa-users"></span> Contacts</a></li>
         </ul>
@@ -305,14 +305,14 @@ $(document).ready(function () {
     $$u_{d,x} = q_{x}(\{y_{j,h}: h_{s}\leq h \leq h_e, |d-j| \leq D\})$$
  where       
  <ul>
-    <li> $u_{d,x}$: $x$-quantile threshold at day $d$</li>
+    <li> $u_{d,x}$: $x\%$-th percentile threshold at day $d$</li>
     <li> $y_{d,h}$: temperature at day $d$ of year $h$ </li>
     <li> $q_{x}(\cdot)$: quantile of order $x \in (0,1)$ </li>       
     <li> $D$: half-window </li>    
     <li> $h_s$ and $h_e$: first and last year of observations  </li>    
  </ul>          
 
-The moving-window is usually set to 15 days ($D=7$) and the common choice for the quantiles are 0.85, 0.90, and 0.95. The latter determines the severity of the detected events, 
+The moving-window is usually set to 15 days ($D=7$) and common choices for the percentiles are 85, 90, and 95. The latter determines the severity of the detected events, 
 with higher thresholds identifying fewer but more extreme episodes. In addition, the number of consecutive days can be let to vary. </p>
  <br> <br> <br>       
 
