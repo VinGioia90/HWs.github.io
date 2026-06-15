@@ -324,10 +324,32 @@ The  MS model is specified by two processes:
 <strong>Latent stochastic process</strong>
 We assume a latent process ruled by a first-order Markov chain structure with homogeneous transition probabilities. In formulas, the process is specified through 
 $\delta_{jk} = {\rm Pr}\left(S_t=k|S_{t-1}=j\right)$, for $j,k = 1, \ldots, K$, that are the entries of the stichastic $K \times K$ transition probability matrix $\boldsymbol \Delta$. 
-
-In this work, only transitions between adjacent regimes are allowed, that is  $\delta_{jk}\ne 0$ if and only if $j = 1,\ldots, K,$ and $k \in \omega_j$, with $\omega_j = \{k: \max(1, j-1) \leq k \leq \min(j+1, K)\}$. Further, the non-zero entries of $\boldsymbol \Delta$ are parametrised using the (multi-) logit link function as $\nu_{jk} = {\rm logit}(\delta_{jk})$, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$, with $\tilde \omega_j = \omega_j \setminus \{j\}$.
-
-Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi_0$, with $\pi_{0k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$.  
+Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi_0$, with $\pi_{0k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$. 
+        
+        
+In this work, we only consider two different sparse transition probability matrix structures $\boldsymbol \Delta^{(l)}$, with $l\in \{1,2\}$ denoting the maximum step-length transition. 
+More precisely, we consider models only allowing:   
+ <ul>
+    <li>  transitions among adjacent regimes (thereafter \texttt{TPM1} model), that is  $\delta^{(1)}_{jk}\ne 0$ if and only if $j = 1,\ldots, K,$ and $k \in \omega^{(1)}_j$, with $\omega^{(1)}_j = \{k: \max(1, j-1 \leq k \leq \min(j+1, K)\}$, leading to  
+$$\boldsymbol \Delta^{(1)} = \begin{pmatrix} \delta^{(1)}_{11} & \delta^{(1)}_{12}  & 0 &\cdots  & 0 \\
+\delta^{(1)}_{21} & \delta^{(1)}_{22} & \delta^{(1)}_{23} &  \ddots  & 0 \\
+0 & \ddots & \ddots & \ddots &  \ddots  \\ 
+\vdots &    \ddots   & \delta^{(1)}_{K-1K-2} & \delta^{(1)}_{K-1K-1} & \delta^{(1)}_{K-1K} \\
+0 & \cdots & 0 & \delta^{(1)}_{KK-1}  & \delta^{(1)}_{KK} \\
+\end{pmatrix}$$</li>
+    <li> transitions among regimes with a maximum distance of two steps (\texttt{TPM2} model), that is $\delta^{(2)}_{jk}\ne 0$ if and only if $j = 1,\ldots, K,$ and $k \in \omega^{(2)}_j$, with $\omega^{(2)}_j = \{k: \max(1, j-2) \leq k \leq \min(j+2, K)\}$, leading to  $$\boldsymbol \Delta^{(2)} = \begin{pmatrix} \delta^{(2)}_{11} & \delta^{(2)}_{12}  & \delta^{(2)}_{13}& 0 &\cdots  & 0 \\
+\delta^{(2)}_{21} & \delta^{(2)}_{22} & \delta^{(2)}_{23} & \delta^{(2)}_{24} & \ddots  & 0 \\
+0 & \ddots & \ddots & \ddots &  \ddots & \cdots \\ 
+\vdots &    \ddots   & \delta^{(2)}_{K-1K-3} & \delta^{(2)}_{K-1K-2} & \delta^{(2)}_{K-1K-1} & \delta^{(2)}_{K-1K} \\
+0 & \cdots & 0 & \delta^{(2)}_{KK-2}  & \delta^{(2)}_{KK-1}  & \delta^{(2)}_{KK} \\
+\end{pmatrix}$$ </li>
+    </ul>
+           
+During the estimation process, the transition probabilities are modelled via (multi-)logit link function, 
+that is $\nu^{(l)}_{jk} = {\rm logit}\left(\delta^{(l)}_{jk} \right)$, for $j = 1,\ldots, K$, and $k \in \tilde \omega^{(l)}_j$, 
+with $\tilde \omega^{(l)}_j = \omega^{(l)}_j \setminus \{j\}$, and $l\in \{1,2\}$. \\
+        
+         
 
        
 <strong>Observable stochastic process</strong>
