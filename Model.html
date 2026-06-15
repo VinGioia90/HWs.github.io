@@ -414,12 +414,12 @@ We let the regime-specific location parameters $\mu_{kt}$ to vary as a function 
 In perticular the  location parameters $\mu_{kt}$ are modelled in a semi-parametric way as        
        
 \begin{equation} \label{eq:lpGENERAL}
-\mu_{kt} = \mu_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,
+\mu_{kt} = \mu_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{k}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,
 \end{equation}
 where 
  <ul>
-    <li> $\mu_{k,year(t)}$: random effects per year </li> 
-    <li> \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}: seasonality component ($b_i$ are B-spline bases with derivative-based penalties of dimension $r$ and $\text{doy}$ is the day of the year) </li>    
+    <li> $\mu_{k,year(t)}$: yearly random effects</li> 
+    <li> $\sum_{i=1}^{r}b_i(doy_{t}) u_{ki}: seasonality component ($b_i$ are B-spline bases with derivative-based penalties of dimension $r$ and $\text{doy}$ is the day of the year) </li>    
  </ul>     
 
 During the estimation process, the scale parameter are parametrised via $\log(\sigma_k)=\gamma_k$. 
@@ -429,12 +429,12 @@ During the estimation process, the scale parameter are parametrised via $\log(\s
 <p><strong>Bayesian Inference</strong></p> 
 <p>We carry out Bayesian inference on the parameter vector 
 $\boldsymbol \beta = (\boldsymbol \mu^\top_{1, year},\mathbf u^\top_1, \ldots, \boldsymbol \mu^\top_{K, year}, \mathbf u_K, {\boldsymbol \gamma}^\top, {\boldsymbol \nu}^\top)^\top\,$
-with $\boldsymbol \mu_{k, year} = (\mu_{k, 1}, \ldots, \mu_{k, n_year})$ and  $\mathbf u_k = (u_{k1}, \ldots, u_{kr})$, for $k = 1, \ldots, K$; while the vectors ${\boldsymbol \gamma}$ and 
+with $\boldsymbol \mu_{k, year} = (\mu_{k, 1}, \ldots, \mu_{k, n_{year}})$, where $n_{year}$ is the total number of year, and  $\mathbf u_k = (u_{k1}, \ldots, u_{kr})$, for $k = 1, \ldots, K$; while the vectors ${\boldsymbol \gamma}$ and 
 ${\boldsymbol \nu}$ includes the $\gamma_j$ and $\nu_{jk}$ parameters, for $j = 1,\ldots, K$, and $k \in \tilde \omega^{(l)}_j$, $l \in \{1, 2\}$.</p> 
 
 <br>
        
-Following  <a href="References.html"  target="_blank"> Hamilton (1994)</a>, the log-likelihood is
+<p> Following  <a href="References.html"  target="_blank"> Hamilton (1994)</a>, the log-likelihood is
 \begin{equation}\label{eq:llik}
 \ell(\boldsymbol \beta)=\sum_{t=1}^{T} {\rm log} f_{Y_t}(y_t|{\mathcal{\tilde I}}_{t}; \boldsymbol \beta)=\displaystyle \sum_{t=1}^{T}{\rm log}\sum_{j=1 }^{K} \sum_{k \in \omega_j} \delta^{t}_{jk} \pi^{t-1}_{j} f_{Y_t|S_t}(y_t|s_t=k; \mathbf X_{t\cdot},  \boldsymbol \beta_{k}) \,, \nonumber
 \end{equation}
@@ -442,7 +442,24 @@ where  $\pi^{t}_{j} = {\rm Pr}(S_t=j| \mathcal{I}_{t};  \boldsymbol \beta)$ are 
 \begin{eqnarray*}\label{eq:filtProb} 
 \pi^{t}_{j} =  \sum_{k \in \omega_j}^{} \delta^{t}_{kj} \pi^{t-1}_{k} f_{Y_t|S_t}(y_t|s_t=j; \mathbf X_{t\cdot},  \boldsymbol \beta_{j}) \big/ f_{Y_t}(y_t| \mathcal{\tilde  I}_{t}; \boldsymbol \beta)\,, \quad j=1, \ldots, K,
 \end{eqnarray*}        
-Then, let $\mathcal{I}_{t}$ be the information available up to time $t$, and $\mathcal{\tilde I}_{t}= \mathcal{I}_{t} \setminus \{y_t\}$.
+with $\mathcal{I}_{t}$ the information available up to time $t$, and $\mathcal{\tilde I}_{t}= \mathcal{I}_{t} \setminus \{y_t\}$. </p> 
+
+<br> <br>   
+       
+<p><strong>Priors</strong></p> 
+
+The yearly random effects are build hierarchically as 
+       $$\mu_{k,year(t)} = \mu_k + \sigma_{k,year} z_{k,year}$$
+ where 
+  <ul>
+    <li> $\mu_1 \sim mathcal{N}({\rm mean}(\mathbf y_{(k)}, 1)$, where $\mathbf{y}_{(k)}$ is such that  
+           $\mathbf {y}_{(1)} = \{y_t \in \mathbf{y}: {\rm min(\mathbf{y})} \leq y_t \leq Q_{1/K} (\mathbf {y})\}$, 
+           with $Q_{h}(\mathbf y)$ the quantile of order $h\in (0,1)$ of $\mathbf y = (y_1, \ldots, y_T)^\top$; </li>      
+    <li> $\mu_k = \mu_{k-1} + delta_{k-1}$, with $\delta_{k-1} \sim \mathcal{N}^{+}(0,1)$, for $k in \{2, \ldots, K\}$, with $\mathcal{N}^{+}(0,1)$ the standard normal distribution truncated at zero </li>
+    <li> $\sigma_{year} \sim t^{+}_3(0,1)$, with $t^{+}_3(0,1)$ a truncated at zero Student-t with 3 degrees of freedom, location 0 and scale 1 </li>
+     <li> $z_{k,year} \sim \mathcal{N}(0,1)$ </li>     
+  </ul>       
+       
 </div>
 
 </div>
