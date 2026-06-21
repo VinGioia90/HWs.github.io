@@ -297,8 +297,8 @@ $(document).ready(function () {
 <div class="workshop-content">
 <p> Markov-switching (MS) models represent a flexible modelling framework in which an unobserved state variable determines the membership of observations to distinct regimes. 
 Conditional on the regime, the data-generating mechanism can be described using relatively simple stochastic models. 
-For comprehensive treatments of Markov-switching models, see  <a href="References.html"  target="_blank"> Frühwirth-Schnatter (2006)</a> and 
-       <a href="References.html"  target="_blank"> Zucchini et al. (2017)</a>. The picture below is a schematic representation of the Markov-switching model.</p>
+For comprehensive treatments of MS models, see  <a href="References.html"  target="_blank"> Frühwirth-Schnatter (2006)</a> and 
+       <a href="References.html"  target="_blank"> Zucchini et al. (2017)</a>, while the picture below is a schematic representation of the model.</p>
 <br>         
 
        
@@ -311,32 +311,25 @@ For comprehensive treatments of Markov-switching models, see  <a href="Reference
 </figure>
 </center>
 
-<br> <br> <br>
-
-
+<br> 
 
 <p> The  MS model is specified by two processes:
  <ul>
-    <li> <strong>Latent stochastic process</strong>:  $\{S_t\}_{t \geq 0}$, with $S_t\in\{1,2, \ldots, K\}$, where $K$ is the number of states/regimes</li>
-    <li> <strong>Observable stochastic process</strong>: $\{Y_t\}_{t \geq 1}$, whose realizations are $y_t$, for $t=1, \ldots, T$</li>       
+    <li> <strong>Latent stochastic process</strong>:  $\{S_t\}_{t \geq 0}$, with $S_t\in\{1,2, \ldots, K\}$, where $K$ is the number of states/regimes;</li>
+    <li> <strong>Observable stochastic process</strong>: $\{Y_t\}_{t \geq 1}$, whose realizations are $y_t$, for $t=1, \ldots, T$.</li>       
  </ul>  
  </p>       
-<br> <br>
-
+<br> 
         
 <p> <strong>Latent stochastic process</strong> </p> 
-<br>
-We assume a latent process ruled by a first-order Markov chain structure with homogeneous transition probabilities. In formulas, the process is specified through 
+<p> We assume a latent process ruled by a first-order Markov chain structure with homogeneous transition probabilities. In formulas, the process is specified through 
 $\delta_{jk} = {\rm Pr}\left(S_t=k|S_{t-1}=j\right)$, for $j,k = 1, \ldots, K$, that are the entries of the stochastic $K \times K$ transition probability matrix $\boldsymbol \Delta$. 
-Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi_0$, with $\pi_{0k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$. 
-<br> <br>        
+Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi^0$, with $\pi^{0}_{k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$. </p>
+<br>        
         
-In this work, we consider a sparse transition probability matrix structures $\boldsymbol \Delta$ only allowing transitions among regimes with a maximum distance of two steps. 
-       
-<p>More precisely, we assume $\delta_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(2)}_j$, with
-$\omega_j= \{k:\max(1,j-2)\le k\le \min(j+2,K)\}$. This leads to
-</p>
-
+<p> In this work, we consider a sparse transition probability matrix structures $\boldsymbol \Delta$ only allowing transitions among regimes with a maximum distance of two steps. 
+More precisely, we assume $\delta_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(2)}_j$, with
+$\omega_j= \{k:\max(1,j-2)\le k\le \min(j+2,K)\}$. This leads to </p>
 $$
 \boldsymbol{\Delta}=
 \begin{pmatrix}
@@ -370,20 +363,19 @@ with $\tilde \omega_j = \omega_j \setminus \{j\}$. </p>
 <p><strong>Observable stochastic process</strong></p>
 For the observable process $\{Y_t\}_{t \geq 1}$, we assume that (i) the $Y_t$'s are conditionally independent given $S_t$ and the covariate information $\mathbf x_t$, and 
        (ii) the conditional (to the state) distribution follows a Normal distribution $Y_t|S_t=k; \mathbf{x}_t \sim \mathcal{N}(\mu_{kt},\sigma_{k})$,  for $k=1, \ldots, K$.
-We let the regime-specific location parameters $\mu_{kt}$ to vary as a function of the covariate, while the scale parameters $\sigma_k$ to be covariate-free,  for $k=1, \ldots, K$.   
-
-In perticular the  location parameters $\mu_{kt}$ are modelled in a semi-parametric way as        
+We let the regime-specific location parameters $\mu_{kt}$ to vary as a function of the covariates, while the scale parameters $\sigma_k$ to be covariate-free,  for $k=1, \ldots, K$.   
+In particular the  location parameters $\mu_{kt}$ are modelled in a semi-parametric way as        
        
 \begin{equation} \label{eq:lpGENERAL}
-\mu_{kt} = \mu_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{k}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,
+\mu_{kt} = \mu_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,
 \end{equation}
 where 
  <ul>
-    <li> $\mu_{k,year(t)}$: regime-specific yearly random effects</li> 
-    <li> $\sum_{i=1}^{r}b_i(doy_{t}) u_{ki}$: seasonality component ($b_i$ are B-spline bases with derivative-based penalties of dimension $r$ and $\text{doy}$ is the day of the year) </li>    
+    <li> $\mu_{k,year(t)}$: regime-specific yearly random effects;</li> 
+    <li> $\sum_{i=1}^{r}b_i(doy_{t}) u_{ki}$: seasonality component ($b_i$ are B-spline bases with derivative-based penalties of dimension $r$ and $\text{doy}$ is the day of the year). </li>    
  </ul>     
 
-During the estimation process, the scale parameter are parametrised via $\log(\sigma_k)=\gamma_k$. 
+During the estimation process, the scale parameters are parametrised via $\log(\sigma_k)=\gamma_k$. 
 
 <br> <br>   
        
@@ -392,73 +384,63 @@ During the estimation process, the scale parameter are parametrised via $\log(\s
 $\boldsymbol \beta = (\boldsymbol \mu^\top_{1, year},\mathbf u^\top_1, \ldots, \boldsymbol \mu^\top_{K, year}, \mathbf u_K, {\boldsymbol \gamma}^\top, {\boldsymbol \nu}^\top)^\top\,$
 with $\boldsymbol \mu_{k, year} = (\mu_{k, 1}, \ldots, \mu_{k, n_{year}})$, where $n_{year}$ is the total number of year, and  $\mathbf u_k = (u_{k1}, \ldots, u_{kr})$, for $k = 1, \ldots, K$; while the vectors ${\boldsymbol \gamma}$ and 
 ${\boldsymbol \nu}$ includes the $\gamma_j$ and $\nu_{jk}$ parameters, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$.</p> 
-
-<br>
        
 <p> Following  <a href="References.html"  target="_blank"> Hamilton (1994)</a>, the log-likelihood is
 \begin{equation}\label{eq:llik}
-\ell(\boldsymbol \beta)=\sum_{t=1}^{T} {\rm log} f_{Y_t}(y_t|{\mathcal{\tilde I}}_{t}; \boldsymbol \beta)=\displaystyle \sum_{t=1}^{T}{\rm log}\sum_{j=1 }^{K} \sum_{k \in \omega_j} \delta^{t}_{jk} \pi^{t-1}_{j} f_{Y_t|S_t}(y_t|s_t=k; \mathbf X_{t\cdot},  \boldsymbol \beta_{k}) \,, \nonumber
+\ell(\boldsymbol \beta)=\sum_{t=1}^{T} {\rm log} f_{Y_t}(y_t|{\mathcal{\tilde I}}_{t}; \boldsymbol \beta)=\displaystyle \sum_{t=1}^{T}{\rm log}\sum_{j=1 }^{K} \sum_{k \in \omega_j} \delta_{jk} \pi^{t-1}_{j} f_{Y_t|S_t}(y_t|s_t=k; \mathbf X_{t\cdot},  \boldsymbol \beta_{k}) \,, \nonumber
 \end{equation}
 where  $\pi^{t}_{j} = {\rm Pr}(S_t=j| \mathcal{I}_{t};  \boldsymbol \beta)$ are the filtered state probabilities, that is,
 \begin{eqnarray*}\label{eq:filtProb} 
-\pi^{t}_{j} =  \sum_{k \in \omega_j}^{} \delta^{t}_{kj} \pi^{t-1}_{k} f_{Y_t|S_t}(y_t|s_t=j; \mathbf X_{t\cdot},  \boldsymbol \beta_{j}) \big/ f_{Y_t}(y_t| \mathcal{\tilde  I}_{t}; \boldsymbol \beta)\,, \quad j=1, \ldots, K,
+\pi^{t}_{j} =  \sum_{k \in \omega_j}^{} \delta_{kj} \pi^{t-1}_{k} f_{Y_t|S_t}(y_t|s_t=j; \mathbf X_{t\cdot},  \boldsymbol \beta_{j}) \big/ f_{Y_t}(y_t| \mathcal{\tilde  I}_{t}; \boldsymbol \beta)\,, \quad j=1, \ldots, K,
 \end{eqnarray*}        
 with $\mathcal{I}_{t}$ the information available up to time $t$, and $\mathcal{\tilde I}_{t}= \mathcal{I}_{t} \setminus \{y_t\}$. </p> 
-
-<br> <br>   
-       
+<br>       
 <p><strong>Priors</strong></p> 
        
-<p>The yearly random effects are build hierarchically as 
+<p>The regime-specific yearly random effects are build hierarchically as 
        $$\mu_{k,year(t)} = \mu_k + \sigma_{k,year} z_{k,year}$$
  where 
   <ul>
-    <li> $\mu_1 \sim \mathcal{N}({\rm mean}(\mathbf y_{(1)}, 1)$ </li>
-    <li> $\mu_k = \mu_{k-1} + \delta_{k-1}$, with $\delta_{k-1} \sim \mathcal{N}^{+}(0,1)$, for $k in \{2, \ldots, K\}$</li>
-    <li> $\sigma_{year} \sim t^{+}_3(0,1)$, for $k \in \{1, \ldots, K\}$ </li>
-     <li> $z_{k,year} \sim \mathcal{N}(0,1)$, for $k \in \{1, \ldots, K\}$ </li>     </p> 
-  </ul>       
-
-
-<br> <br>   
+    <li> $\mu_1 \sim \mathcal{N}({\rm mean}(\mathbf y_{(1)}), 1)$; </li>
+    <li> $\mu_k = \mu_{k-1} + \delta_{k-1}$, with $\delta_{k-1} \sim \mathcal{N}^{+}(0,1)$, for $k \in \{2, \ldots, K\}$;</li>
+    <li> $\sigma_{year} \sim t^{+}_3(0,1)$, for $k \in \{1, \ldots, K\}$; </li>
+     <li> $z_{k,year} \sim \mathcal{N}(0,1)$, for $k \in \{1, \ldots, K\}$. </li>     
+  </ul> </p>         
 
  <p>For the remaining model parameters, we set:
   <ul>
-    <li>$\gamma_k \sim \mathcal{N}(\log(sd(\mathbf{y}_{(k)})), 0.5)$ </li>
-    <li>$\nu^{(l)}_{jk} \sim \mathcal{N}(-1,0.5)$, for $j = 1, \ldots, K$, $ k \in \tilde \omega^{(l)}_j$, with $l\in \{1,2\}$</li>
+    <li>$\gamma_k \sim \mathcal{N}(\log(sd(\mathbf{y}_{(k)})), 0.5)$; </li>
+    <li>$\nu_{jk} \sim \mathcal{N}(-1,0.5)$, for $j = 1, \ldots, K$, $ k \in \tilde \omega_j$.</li>
   </ul>     </p>  
-
-<br> <br>   
 
 <p>Notation used above: 
   <ul>
     <li>  $\mathbf{y}_{(k)}$ is such that  $\mathbf {y}_{(k)} = \{y_t \in \mathbf{y}: Q_{(k-1)/K} (\mathbf {y}) \leq y_t \leq Q_{k/K} (\mathbf {y})\}$, 
-           with $Q_{h}(\mathbf y)$ the quantile of order $h\in (0,1)$ of $\mathbf y = (y_1, \ldots, y_T)^\top$ </li>
-    <li> $\mathcal{N}^{+}(a,b)$: truncated (at zero) normal distribution, with location $a$ and scale $b$</li> 
-    <li> $t^{+}_\nu(a,b)$: truncated (at zero) Student-t distribution with $\nu$ degrees of freedom, with location $a$ and scale $b$</li>
+           with $Q_{h}(\mathbf y)$ the quantile of order $h\in (0,1)$ of $\mathbf y = (y_1, \ldots, y_T)^\top$;</li>
+    <li> $\mathcal{N}^{+}(a,b)$: truncated (at zero) normal distribution, with location $a$ and scale $b$;</li> 
+    <li> $t^{+}_\nu(a,b)$: truncated (at zero) Student-t distribution with $\nu$ degrees of freedom, with location $a$ and scale $b$.</li>
   </ul></p> 
 
+       
+<br>
+       
 <p><strong>Simulations, model checking and evaluation</strong></p> 
-Model simulations are carried out using Markov Chain Monte Carlo (MCMC) methods, in particular through the No-U-Turn Sampler extension to the Hamiltonian Monte Carlo 
+<p>Model simulations are carried out using Markov Chain Monte Carlo (MCMC) methods, in particular through the No-U-Turn Sampler extension to the Hamiltonian Monte Carlo 
 <a href="References.html"  target="_blank"> (Hoffman and Gelman, 2014)</a>, as implemented in the  probabilistic programming language <a href="References.html"  target="_blank"> Stan (2014)</a>. 
-We ran four chains for 2000 iterations for each model by considering as warm-up period the first half of each chain. The remaining algorithm parameters are left to default settings.  
-
-<br> <br>   
+We ran four chains for 2000 iterations for each model by considering as warm-up period the first half of each chain. The remaining algorithm parameters are left to default settings.</p>  
        
-MCMC model output diagnostics are analyzed through:
+<p>MCMC model output diagnostics are analyzed through:
 <ul>
-    <li> Standard graphical tools: traceplots and autocorrelation function plots </li>
-    <li> Summaries of the posterior distributions </li>
-    <li> Synthetic indices: number of effective sample sizes, ${\rm n}_{{\rm eff}}$, and the $\hat {\rm R}$ statistics (see <a href="References.html"  target="_blank"> Gelman et al., 2013)</a> </li>    
-</ul>
-
-<br> <br>   
+    <li> Standard graphical tools: traceplots and autocorrelation function plots; </li>
+    <li> Summaries of the posterior distributions; </li>
+    <li> Synthetic indices: number of effective sample sizes, ${\rm n}_{{\rm eff}}$, and the $\hat {\rm R}$ statistics (see <a href="References.html"  target="_blank"> Gelman et al., 2013).</a> </li>    
+</ul></p> 
        
-Model comparison is carried out by means of:
+<p>Model comparison is carried out by means of:
 <ul>
-    <li> Approximate Leave-One-Out cross-validation Information Criterion (see <a href="References.html"  target="_blank"> Vethari et al., 2017)</a>  </li>
-    <li> Differences in the expected log-predictive density (ELPD) and the associated standard errors </li>        
-</ul>
+    <li> Approximate Leave-One-Out cross-validation Information Criterion (see <a href="References.html"  target="_blank"> Vethari et al., 2017)</a>;  </li>
+    <li> Differences in the expected log-predictive density (ELPD) and the associated standard errors. </li>        
+</ul></p> 
        
 </div>
 
