@@ -293,15 +293,14 @@ $(document).ready(function () {
 <p>  
 
 <div class="workshop-content">
-<p> By exploiting the probabilistic structure of the Markov-switching model, 
+<p> By exploiting the probabilistic structure of the MS model, 
        we explore heat waves characterisation as prolonged periods during which the temperature stays in the hottest regime (the regime having the highest average temperature).
 More precisely, we propose a classification rule that considers a period as a heat wave if the probability of being in the $K$-th regime is greater than the probability 
-       of being in any other regime for at least $g$ consecutive days. 
-In formulas, we consider a period as a heat wave if $\hat\pi^{t+i}_K  > \hat\pi^{t+i}_k$, for all $k \in \{1, \ldots, K-1\}$ and with $i \in \{0,\ldots,g-1\}$ within a season, 
-       where $\pi^t_k$, for $k =1, \ldots, K$, are the filtered state probabilities in equation (\ref{eq:filtProb}). 
-Alternatively, it is possible to classify heat waves using the  state-membership $s_t$ generated from a multinomial distribution with probability vector $\hat{\boldsymbol{\pi}}^t$. 
-In this case, we consider a period as a heat wave if $s_{t+i} = K$ for $i \in \{0,\ldots, g-1\}$. 
-       These classification rules can be used to describe the frequency and duration of heat waves over time. \\
+       of being in any other regime for at least three consecutive days. 
+In formulas, we consider a period $[t,\, t+n-1]$ as heat wave if 
+$$n \geq 3 \;\,\, \text{and}\;\,\, \hat\pi^{t+i}_K > \hat\pi^{t+i}_k \quad \forall\, k \in \{1,\ldots,K-1\},\; \forall\, i \in \{0, 1, \ldots, n-1\}.$$
+where $\pi^t_k$, for $k =1, \ldots, K$, are the filtered state probabilities introduced in <a href="References.html"  target="_blank"> MS Model</a>. 
+These classification rules can be used to describe the frequency and duration of heat waves over time.
  </p>
 <br>         
 
