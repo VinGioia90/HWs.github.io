@@ -324,8 +324,7 @@ For comprehensive treatments of MS models, see  <a href="References.html"  targe
 <p> <strong>Latent stochastic process</strong> </p> 
 <p> We assume a latent process ruled by a first-order Markov chain structure with homogeneous transition probabilities. In formulas, the process is specified through 
 $\delta_{jk} = {\rm Pr}\left(S_t=k|S_{t-1}=j\right)$, for $j,k = 1, \ldots, K$, that are the entries of the stochastic $K \times K$ transition probability matrix $\boldsymbol \Delta$. 
-Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi^0$, with $\pi^{0}_{k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$. </p>
-<br>        
+Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi^0$, with $\pi^{0}_{k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$. </p>     
         
 <p> In this work, we consider a sparse transition probability matrix structures $\boldsymbol \Delta$ only allowing transitions among regimes with a maximum distance of two steps. 
 More precisely, we assume $\delta_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega_j$, with
@@ -357,7 +356,7 @@ $$
 that is $\nu_{jk} = {\rm logit}\left(\delta_{jk} \right)$, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$, 
 with $\tilde \omega_j = \omega_j \setminus \{j\}$. </p>
         
-<br> <br>         
+<br>       
 
        
 <p><strong>Observable stochastic process</strong></p>
@@ -433,12 +432,12 @@ We ran four chains for 2000 iterations for each model by considering as warm-up 
 <ul>
     <li> Standard graphical tools: traceplots and autocorrelation function plots; </li>
     <li> Summaries of the posterior distributions; </li>
-    <li> Synthetic indices: number of effective sample sizes, ${\rm n}_{{\rm eff}}$, and the $\hat {\rm R}$ statistics (see <a href="References.html"  target="_blank"> Gelman et al., 2013).</a> </li>    
+    <li> Synthetic indices: number of effective sample sizes, ${\rm n}_{{\rm eff}}$, and the $\hat {\rm R}$ statistic  <a href="References.html"  target="_blank">(see Gelman et al., 2013).</a> </li>    
 </ul></p> 
        
 <p>Model comparison is carried out by means of:
 <ul>
-    <li> Approximate Leave-One-Out cross-validation Information Criterion (see <a href="References.html"  target="_blank"> Vethari et al., 2017)</a>;  </li>
+    <li> Approximate Leave-One-Out cross-validation Information Criterion  <a href="References.html"  target="_blank"> (see Vethari et al., 2017)</a>;  </li>
     <li> Differences in the expected log-predictive density (ELPD) and the associated standard errors. </li>        
 </ul></p> 
        
