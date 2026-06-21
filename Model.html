@@ -333,37 +333,35 @@ Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initia
         
 In this work, we consider a sparse transition probability matrix structures $\boldsymbol \Delta$ only allowing transitions among regimes with a maximum distance of two steps. 
        
-More precisely, we assume $\delta^_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(2)}_j$, with
-$\omega_j= \{k:\max(1,j-2)\le k\le \min(j+2,K)\}$.
-
-This leads to
+<p>More precisely, we assume $\delta_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(2)}_j$, with
+$\omega_j= \{k:\max(1,j-2)\le k\le \min(j+2,K)\}$. This leads to
 </p>
 
 $$
-\boldsymbol{\Delta}^{(2)}=
+\boldsymbol{\Delta}=
 \begin{pmatrix}
-\delta^{(2)}_{11} & \delta^{(2)}_{12} &
-\delta^{(2)}_{13} & 0 & \cdots & 0\\
-\delta^{(2)}_{21} & \delta^{(2)}_{22} &
-\delta^{(2)}_{23} & \delta^{(2)}_{24} &
+\delta_{11} & \delta_{12} &
+\delta_{13} & 0 & \cdots & 0\\
+\delta_{21} & \delta_{22} &
+\delta_{23} & \delta_{24} &
 \ddots & 0\\
 0 & \ddots & \ddots & \ddots & \ddots & \cdots\\
 \vdots & \ddots &
-\delta^{(2)}_{K-1K-3} &
-\delta^{(2)}_{K-1K-2} &
-\delta^{(2)}_{K-1K-1} &
-\delta^{(2)}_{K-1K}\\
+\delta_{K-1K-3} &
+\delta_{K-1K-2} &
+\delta_{K-1K-1} &
+\delta_{K-1K}\\
 0 & \cdots & 0 &
-\delta^{(2)}_{KK-2} &
-\delta^{(2)}_{KK-1} &
-\delta^{(2)}_{KK}
+\delta_{KK-2} &
+\delta_{KK-1} &
+\delta_{KK}
 \end{pmatrix}
 $$
 
         
 <br> <br>        
 <p>During the estimation process, the transition probabilities are modelled via (multi-) logit link function, 
-that is $\nu_{jk} = {\rm logit}\left(\delta}_{jk} \right)$, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$, 
+that is $\nu_{jk} = {\rm logit}\left(\delta_{jk} \right)$, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$, 
 with $\tilde \omega_j = \omega_j \setminus \{j\}$. </p>
         
 <br> <br>         
@@ -381,7 +379,7 @@ In perticular the  location parameters $\mu_{kt}$ are modelled in a semi-paramet
 \end{equation}
 where 
  <ul>
-    <li> $\mu_{k,year(t)}$: yearly random effects</li> 
+    <li> $\mu_{k,year(t)}$: regime-specific yearly random effects</li> 
     <li> $\sum_{i=1}^{r}b_i(doy_{t}) u_{ki}$: seasonality component ($b_i$ are B-spline bases with derivative-based penalties of dimension $r$ and $\text{doy}$ is the day of the year) </li>    
  </ul>     
 
