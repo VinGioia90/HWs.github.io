@@ -366,11 +366,12 @@ We let the regime-specific location parameters $\mu_{kt}$ to vary as a function 
 In particular the  location parameters $\mu_{kt}$ are modelled in a semi-parametric way as        
        
 \begin{equation} \label{eq:lpGENERAL}
-\mu_{kt} = \mu_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,
+\mu_{kt} = \mu_k + \alpha_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,
 \end{equation}
 where 
  <ul>
-    <li> $\mu_{k,year(t)}$: regime-specific yearly random effects;</li> 
+    <li> $\mu_{k}$: regime-specific mean;</li>      
+    <li> $\alpha_{k,year(t)}$: regime-specific yearly random effects;</li> 
     <li> $\sum_{i=1}^{r}b_i(doy_{t}) u_{ki}$: seasonality component ($b_i$ are B-spline bases with derivative-based penalties of dimension $r$ and $\text{doy}$ is the day of the year). </li>    
  </ul>     
 
@@ -397,13 +398,13 @@ with $\mathcal{I}_{t}$ the information available up to time $t$, and $\mathcal{\
 <p><strong>Priors</strong></p> 
        
 <p>The regime-specific yearly random effects are build hierarchically as 
-       $$\mu_{k,year(t)} = \mu_k + \sigma_{k,year} z_{k,year}$$
+      $$\mu_{kt} = \mu_k + \alpha_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,$$
  where 
   <ul>
     <li> $\mu_1 \sim \mathcal{N}({\rm mean}(\mathbf y_{(1)}), 1)$; </li>
     <li> $\mu_k = \mu_{k-1} + \delta_{k-1}$, with $\delta_{k-1} \sim \mathcal{N}^{+}(0,1)$, for $k \in \{2, \ldots, K\}$;</li>
-    <li> $\sigma_{year} \sim t^{+}_3(0,1)$, for $k \in \{1, \ldots, K\}$; </li>
-     <li> $z_{k,year} \sim \mathcal{N}(0,1)$, for $k \in \{1, \ldots, K\}$. </li>     
+    <li> $\alpha_{k,year(t)} = \sigma_{year} z_{k,year}$ where $\sigma_{year} \sim t^{+}_3(0,1)$, for $k \in \{1, \ldots, K\}$ and $z_{k,year} \sim \mathcal{N}(0,1)$, for $k \in \{1, \ldots, K\}$; </li>     
+    <li> $u_{ki} \sim \mathcal{N}(0, \tilde \sigma_k)$ with $\tilde \sigma_k \sim t^{+}_3(0,3)$. 
   </ul> </p>         
 
  <p>For the remaining model parameters, we set:
