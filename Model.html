@@ -331,44 +331,10 @@ $\delta_{jk} = {\rm Pr}\left(S_t=k|S_{t-1}=j\right)$, for $j,k = 1, \ldots, K$, 
 Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi_0$, with $\pi_{0k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$. 
 <br> <br>        
         
-In this work, we only consider two different sparse transition probability matrix structures $\boldsymbol \Delta^{(l)}$, with $l\in \{1,2\}$ denoting the maximum step-length transition. 
-More precisely, we consider:  
-
-<div style="display:flex; gap:40px; align-items:flex-start;">
-
-<div style="width:50%;">
-
-<h4><code>TPM1 model</code></h4>
-
-<p>
-Only allowing transitions among adjacent regimes, that is $\delta^{(1)}_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(1)}_j$, with  $\omega^{(1)}_j= \{k:\max(1,j-1)\le k\le \min(j+1,K)\}$.
-
-This leads to
-</p>
-$$
-\boldsymbol{\Delta}^{(1)}=
-\begin{pmatrix}
-\delta^{(1)}_{11} & \delta^{(1)}_{12} & 0 & \cdots & 0\\
-\delta^{(1)}_{21} & \delta^{(1)}_{22} & \delta^{(1)}_{23} & \ddots & 0\\
-0 & \ddots & \ddots & \ddots & \ddots\\
-\vdots & \ddots & \delta^{(1)}_{K-1K-2} &
-\delta^{(1)}_{K-1K-1} &
-\delta^{(1)}_{K-1K}\\
-0 & \cdots & 0 &
-\delta^{(1)}_{KK-1} &
-\delta^{(1)}_{KK}
-\end{pmatrix}
-$$
-
-</div>
-
-<div style="width:50%;">
-
-<h4><code>TPM2 model</code></h4>
-
-<p>
-Allowing transitions among regimes with a maximum distance of two steps, that is $\delta^{(2)}_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(2)}_j$, with
-$\omega^{(2)}_j= \{k:\max(1,j-2)\le k\le \min(j+2,K)\}$.
+In this work, we consider a sparse transition probability matrix structures $\boldsymbol \Delta$ only allowing transitions among regimes with a maximum distance of two steps. 
+       
+More precisely, we assume $\delta^_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega^{(2)}_j$, with
+$\omega_j= \{k:\max(1,j-2)\le k\le \min(j+2,K)\}$.
 
 This leads to
 </p>
@@ -394,14 +360,11 @@ $$
 \end{pmatrix}
 $$
 
-</div>
-
-</div>
         
 <br> <br>        
 <p>During the estimation process, the transition probabilities are modelled via (multi-) logit link function, 
-that is $\nu^{(l)}_{jk} = {\rm logit}\left(\delta^{(l)}_{jk} \right)$, for $j = 1,\ldots, K$, and $k \in \tilde \omega^{(l)}_j$, 
-with $\tilde \omega^{(l)}_j = \omega^{(l)}_j \setminus \{j\}$, and $l\in \{1,2\}$. </p>
+that is $\nu_{jk} = {\rm logit}\left(\delta}_{jk} \right)$, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$, 
+with $\tilde \omega_j = \omega_j \setminus \{j\}$. </p>
         
 <br> <br>         
 
@@ -430,7 +393,7 @@ During the estimation process, the scale parameter are parametrised via $\log(\s
 <p>We carry out Bayesian inference on the parameter vector 
 $\boldsymbol \beta = (\boldsymbol \mu^\top_{1, year},\mathbf u^\top_1, \ldots, \boldsymbol \mu^\top_{K, year}, \mathbf u_K, {\boldsymbol \gamma}^\top, {\boldsymbol \nu}^\top)^\top\,$
 with $\boldsymbol \mu_{k, year} = (\mu_{k, 1}, \ldots, \mu_{k, n_{year}})$, where $n_{year}$ is the total number of year, and  $\mathbf u_k = (u_{k1}, \ldots, u_{kr})$, for $k = 1, \ldots, K$; while the vectors ${\boldsymbol \gamma}$ and 
-${\boldsymbol \nu}$ includes the $\gamma_j$ and $\nu_{jk}$ parameters, for $j = 1,\ldots, K$, and $k \in \tilde \omega^{(l)}_j$, $l \in \{1, 2\}$.</p> 
+${\boldsymbol \nu}$ includes the $\gamma_j$ and $\nu_{jk}$ parameters, for $j = 1,\ldots, K$, and $k \in \tilde \omega_j$.</p> 
 
 <br>
        
