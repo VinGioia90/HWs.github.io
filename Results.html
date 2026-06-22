@@ -368,20 +368,24 @@ Similarly, although Naha (in the Okinawa region) is classified as having a humid
   </tbody>
 </table>
  
- <img src="images/koppen_giappone2_github.png" style="height: 20%; width: auto; display: block;" />
+ <img src="images/koppen_giappone2_github.png"/>
  
 
 </div>
 
    
 <p><strong>Model evaluation</strong></p> 
-<p>We run the models for $K \in {2,3,4,5}$ and all the stations described above, under the settings specified in <a href="Model.html"  target="_blank"> MS Model</a>.  
+<p>We run the models for $K \in {3,4,5}$ and all the stations described above, under the settings specified in <a href="Model.html"  target="_blank"> MS Model</a>
+and assuming a regime-invariant seasonality component. In formulas, $u_{1i} = \ldots = u_{Ki} = u_i\,, \quad \text{for} \quad i = 1, \ldots, r\,$.   
 However, some few stations required refinements in the prior settings, in particular reducing the scale hyperparameter of $\sigma_year$ and a the location hyperparameter of $\delta_k$, for $k in \{1, \ldots, K\}$.            
 Model diagnostics do not reveal problems, the chains mix well, the values of $\hat R$ are very close to one for all the model parameters and the $n_eff$ are large enough to carry out statistical inference. </p> 
 
-We analyse the model performance by using the LOOIC by varing $K$.  The results in the table below show a consistent improvement in model fit when increasing $K$. 
+<p> We analyse the model performance by using the LOOIC by varing $K$.  The results in the table below show a consistent improvement in model fit when increasing $K$. 
 The LOOIC values seems to reach an elbow-point at $K=4$, supporting the decision not to explore a larger number of regimes than $K=5$. 
-Further, by considering the conservative two standard error threshold for assessing the significance in the $\Delta \text{ELPD}$  comparisons, we recognize the gain of considering $K=5$. Interestingly, the magnitude of the improvement under \texttt{TPM2} varies by location, as partly related to the heterogeneity across stations. For instance, in more temperate locations like Sapporo or Tokyo, the gains are more modest. However, although the LOOIC allow for assessing the global model fit, it is important to analyse the difference between the models in terms of inferential information extracted from the model and, particularly,  the ability to detect heat wave periods, which is the focus of Section \ref{subsec3.3}.
+Further, by considering the conservative two standard error threshold for assessing the significance in the $\Delta \text{ELPD}$  comparisons, we recognize the gain of considering $K=5$. 
+Being the model choice strictly related to the heatwave classification task, the overestimation of the number of heat waves in May, leads us to s </p> 
+
+22715.1 -136.8 (18.6)
 <table style="margin: 0 auto; border-collapse: separate; border-spacing: 10px 6px;">
   <thead>
     <tr>
@@ -396,77 +400,59 @@ Further, by considering the conservative two standard error threshold for assess
   </thead>
   <tbody>
     <tr>
-      <td rowspan="2" style="padding: 8px 16px;">2</td>
-      <td style="padding: 8px 16px;">LOOIC</td>
-      <td style="padding: 8px 16px;">23489.8</td>
-      <td style="padding: 8px 16px;"></td>
-      <td style="padding: 8px 16px;">22541.6</td>
-      <td style="padding: 8px 16px;"></td>
-      <td style="padding: 8px 16px;">14966.4</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px 16px;">ΔELPD (SE)</td>
-      <td style="padding: 8px 16px;">-</td>
-      <td style="padding: 8px 16px;"></td>
-      <td style="padding: 8px 16px;">-</td>
-      <td style="padding: 8px 16px;"></td>
-      <td style="padding: 8px 16px;">-</td>
-    </tr>
-    <tr>
       <td rowspan="2" style="padding: 8px 16px;">3</td>
       <td style="padding: 8px 16px;">LOOIC</td>
       <td style="padding: 8px 16px;">23134.5</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">22177.8</td>
       <td style="padding: 8px 16px;">22088.2</td>
-      <td style="padding: 8px 16px;"></td>
+        <td style="padding: 8px 16px;">20196.0</td>
       <td style="padding: 8px 16px;">14128.8</td>
     </tr>
     <tr>
       <td style="padding: 8px 16px;">ΔELPD (SE)</td>
       <td style="padding: 8px 16px;">−72.9 (15.1)</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">-100.2 (17.6)</td>
       <td style="padding: 8px 16px;">−92.7 (17.4)</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">-103.6 (18.0)</td>
       <td style="padding: 8px 16px;">−215.6 (26.7)</td>
     </tr>
     <tr>
       <td rowspan="2" style="padding: 8px 16px;">4</td>
       <td style="padding: 8px 16px;">LOOIC</td>
       <td style="padding: 8px 16px;">23003.7</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">22029.2</td>
       <td style="padding: 8px 16px;">21983.5</td>
-      <td style="padding: 8px 16px;"></td>
+       <td style="padding: 8px 16px;">20079.5</td>
       <td style="padding: 8px 16px;">13833.3</td>
     </tr>
     <tr>
       <td style="padding: 8px 16px;">ΔELPD (SE)</td>
       <td style="padding: 8px 16px;">−7.5 (6.4)</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">-25.9 (10.8)</td>
       <td style="padding: 8px 16px;">−40.3 (11.1)</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">-45.3 (12.1)</td>
       <td style="padding: 8px 16px;">−67.8 (17.4)</td>
     </tr>
     <tr>
       <td rowspan="2" style="padding: 8px 16px;">5</td>
       <td style="padding: 8px 16px;">LOOIC</td>
       <td style="padding: 8px 16px;">22988.8</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">21977.4</td>
       <td style="padding: 8px 16px;">21902.8</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">19989.9</td>
       <td style="padding: 8px 16px;">13697.7</td>
     </tr>
     <tr>
       <td style="padding: 8px 16px;">ΔELPD (SE)</td>
       <td style="padding: 8px 16px;">0.0</td>
-      <td style="padding: 8px 16px;"></td>
       <td style="padding: 8px 16px;">0.0</td>
-      <td style="padding: 8px 16px;"></td>
+      <td style="padding: 8px 16px;">0.0</td>
+      <td style="padding: 8px 16px;">0.0</td>
       <td style="padding: 8px 16px;">0.0</td>
     </tr>
   </tbody>
 </table>
-       
-The table above 
+
 
 </div>
 
