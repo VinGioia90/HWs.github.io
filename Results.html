@@ -378,10 +378,11 @@ Similarly, although Naha (in the Okinawa region) is classified as having a humid
 <p><strong>Model evaluation</strong></p> 
 <p>We run the models for $K \in \{3,4,5\}$ and all the stations described above, under the settings specified in <a href="Model.html"  target="_blank"> MS Model</a>
 by assuming a regime-invariant seasonality component, that is $u_{1i} = \ldots = u_{Ki} = u_i\,, \quad \text{for} \quad i = 1, \ldots, r\,$.   
-However, some few stations required refinements in the prior settings, in particular reducing the scale hyperparameter of $\sigma_year$ and a the location hyperparameter of $\delta_k$, for $k in \{1, \ldots, K\}$.            
+Some few stations required refinements in the prior settings, in particular reducing the scale hyperparameter of $\sigma_year$ and the location hyperparameter of $\delta_k$, for $k in \{1, \ldots, K\}$.            
 Model diagnostics do not reveal problems, the chains mix well, the values of $\hat R$ are very close to one for all the model parameters and the $n_eff$ are large enough to carry out statistical inference. </p> 
 
-<p> We analyse the model performance by using the LOOIC by varing $K$.  The results in the table below show a consistent improvement in model fit when increasing $K$. 
+<p> We analyse the model performance by using the LOOIC by varing $K$, along with the differences in ELPD and the associate standard errors. 
+The results in the table below show a consistent improvement in model fit when increasing $K$. 
 The LOOIC values seems to reach an elbow-point at $K=4$, supporting the decision not to explore a larger number of regimes than $K=5$. 
 Further, by considering the conservative two standard error threshold for assessing the significance in the $\Delta \text{ELPD}$  comparisons, we recognize the gain of considering $K=5$. 
 Being the model choice strictly related to the heatwave classification task, the overestimation of the number of heat waves in May for Sapporo, leads us to consider the model with regime-specific seasonality components.
@@ -454,6 +455,8 @@ with $K = 5$ and under the regime-specific seasonality signal for Sapporo and th
     </tr>
   </tbody>
 </table>
+
+<p><strong>Model results</strong></p> 
 
 <img src="images/ranef_github.png" style="margin: 0 auto; border-collapse: separate; border-spacing: 10px 6px;">
 
