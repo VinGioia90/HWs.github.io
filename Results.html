@@ -318,7 +318,7 @@ among them (see an example from JMA available at the <a href="https://www.data.j
 Namely, cities located on the eastern coast of Japan exhibit distinct climatic characteristics compared to those facing the Sea of Japan <a href="References.html"  target="_blank"> Ito el (2022)</a>. 
 Similarly, although Naha (in the Okinawa region) is classified as having a humid subtropical climate, it is influenced by features typically associated with tropical monsoonal climate conditions.  </p>
                                                             
-<div style="display: flex; gap: 24px; align-items: flex-start;">
+<div style="display: flex; gap: 24px; align-items: stretch;">
   <div>
     <table>
 <thead>
@@ -370,111 +370,12 @@ Similarly, although Naha (in the Okinawa region) is classified as having a humid
 </table>
   </div>
   <div>
-    <img src="images/koppen_giappone2.png" />
+ <img src="images/koppen_giappone2.png" style="height: 100%; width: auto; display: block;" />
   </div>
 
 </div>
 
-       
-<style>
-table {
-  border-collapse: separate;
-  border-spacing: 10px 6px; /* spazio orizzontale e verticale tra le celle */
-}
-
-th, td {
-  padding: 8px 16px; /* spazio interno alle celle */
-}
-</style>
-
-
-
- <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Köppen Giappone</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 1rem;
-    }
-    .layout {
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    .map-side img {
-      width: 100%;
-      display: block;
-    }
-    table {
-      border-collapse: separate;
-      border-spacing: 10px 6px;
-    }
-    th, td {
-      padding: 8px 16px;
-    }
-  </style>
-</head>
-<body>
-  <div class="layout">
-    <div class="table-side">
-      <table>
-        <thead>
-          <tr>
-            <th>City</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
-            <th>Altitude</th>
-            <th>KG</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Sapporo</td>
-            <td>43°03.6′</td>
-            <td>141°19.7′</td>
-            <td>17.4 m</td>
-            <td>Dfb</td>
-          </tr>
-          <tr>
-            <td>Niigata</td>
-            <td>37°53.6′</td>
-            <td>139°01.1′</td>
-            <td>4.1 m</td>
-            <td>Cfa</td>
-          </tr>
-          <tr>
-            <td>Tokyo</td>
-            <td>35°41.5′</td>
-            <td>139°45.0′</td>
-            <td>25.2 m</td>
-            <td>Cfa</td>
-          </tr>
-          <tr>
-            <td>Fukuoka</td>
-            <td>33°34.9′</td>
-            <td>130°22.5′</td>
-            <td>2.5 m</td>
-            <td>Cfa</td>
-          </tr>
-          <tr>
-            <td>Naha</td>
-            <td>26°12.4′</td>
-            <td>127°41.2′</td>
-            <td>28.1 m</td>
-            <td>Cfa/Am</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="map-side">
-      <img src="images/koppen_giappone2.png" alt="Carta climatica Köppen del Giappone" />
-    </div>
-  </div>
-</body>
+   
 <p><strong>Model evaluation</strong></p> 
 We run the MS model for $K \in {2,3,4,5}$ and all the stations described above. 
 
