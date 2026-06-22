@@ -318,8 +318,7 @@ among them (see an example from JMA available at the <a href="https://www.data.j
 Namely, cities located on the eastern coast of Japan exhibit distinct climatic characteristics compared to those facing the Sea of Japan <a href="References.html"  target="_blank"> Ito el (2022)</a>. 
 Similarly, although Naha (in the Okinawa region) is classified as having a humid subtropical climate, it is influenced by features typically associated with tropical monsoonal climate conditions.  </p>
                                                             
-<div style="display: flex; gap: 24px; align-items: stretch; width: fit-content; margin: 0 auto;">
-  <div>
+
     <table>
 <thead>
     <tr>
@@ -368,19 +367,21 @@ Similarly, although Naha (in the Okinawa region) is classified as having a humid
     </tr>
   </tbody>
 </table>
-  </div>
-  <div>
+ 
  <img src="images/koppen_giappone2_github.png" style="height: 20%; width: auto; display: block;" />
-  </div>
+ 
 
 </div>
 
    
 <p><strong>Model evaluation</strong></p> 
-We run the models for $K \in {2,3,4,5}$ and all the stations described above, under the settings specified in <a href="Model.html"  target="_blank"> MS Model</a>.  
+<p>We run the models for $K \in {2,3,4,5}$ and all the stations described above, under the settings specified in <a href="Model.html"  target="_blank"> MS Model</a>.  
 However, some few stations required refinements in the prior settings, in particular reducing the scale hyperparameter of $\sigma_year$ and a the location hyperparameter of $\delta_k$, for $k in \{1, \ldots, K\}$.            
-Model diagnostics do not reveal problems, the chains mix well, the values of $\hat R$ are very close to one for all the model parameters and the $n_eff$ are large enough to carry out statistical inference. 
+Model diagnostics do not reveal problems, the chains mix well, the values of $\hat R$ are very close to one for all the model parameters and the $n_eff$ are large enough to carry out statistical inference. </p> 
 
+We analyse the model performance by using the LOOIC by varing $K$.  The results in the table below show a consistent improvement in model fit when increasing $K$. 
+The LOOIC values seems to reach an elbow-point at $K=4$, supporting the decision not to explore a larger number of regimes than $K=5$. 
+Further, by considering the conservative two standard error threshold for assessing the significance in the $\Delta \text{ELPD}$  comparisons, we recognize the gain of considering $K=5$. Interestingly, the magnitude of the improvement under \texttt{TPM2} varies by location, as partly related to the heterogeneity across stations. For instance, in more temperate locations like Sapporo or Tokyo, the gains are more modest. However, although the LOOIC allow for assessing the global model fit, it is important to analyse the difference between the models in terms of inferential information extracted from the model and, particularly,  the ability to detect heat wave periods, which is the focus of Section \ref{subsec3.3}.
 <table style="margin: 0 auto; border-collapse: separate; border-spacing: 10px 6px;">
   <thead>
     <tr>
@@ -465,7 +466,7 @@ Model diagnostics do not reveal problems, the chains mix well, the values of $\h
   </tbody>
 </table>
        
-       
+The table above 
 
 </div>
 
