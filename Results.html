@@ -311,11 +311,11 @@ These classification rules can be used to describe the frequency and duration of
 as extracted from the Japan Meteorological Agency <a href="https://www.data.jma.go.jp/risk/obsdl/index.php#" target="_blank">(JMA)</a>.  </p>
 
 
-<p> The table below reports the geographical coordinates, altitude and climate type according to the K&oumlppen-Geiger (KG) classification <a href="https://www.data.jma.go.jp/risk/obsdl/index.php#" target="_blank">(Beck et al., 2023)</a>.  
+<p> The map and the table below report the geographical coordinates, altitude and climate type according to the K&oumlppen-Geiger (KG) classification <a href="https://www.data.jma.go.jp/risk/obsdl/index.php#" target="_blank">(Beck et al., 2023)</a>.  
 According to the KG classification, the cities considered belongs to the climatic subgroups: (i) Humid Continental - warm summer (Dfb); (ii) Humid Continental - hot summer (Dfb); (iii) Humid Subtropical (Cfa); (iv) Tropical monsoon (Am).
 Although most of the selected sites fall within the same climatic subgroup according to the KG classification, there are specific and evident climatic differences 
 among them (see an example from JMA available at the <a href="https://www.data.jma.go.jp/cpd/longfcst/en/tourist.html" target="_blank"> link</a>). 
-Namely, cities located on the eastern coast of Japan exhibit distinct climatic characteristics compared to those facing the Sea of Japan <a href="References.html"  target="_blank"> Ito el (2022)</a>. 
+Namely, cities located on the eastern coast of Japan exhibit distinct climatic characteristics compared to those facing the Sea of Japan <a href="References.html"  target="_blank"> (Ito et al.,2022)</a>. 
 Similarly, although Naha (in the Okinawa region) is classified as having a humid subtropical climate, it is influenced by features typically associated with tropical monsoonal climate conditions.  </p>
 
 <img src="images/koppen_giappone2_github.png" style="max-height: 450px; width: auto; display: block; margin: 0 auto;" />
@@ -458,7 +458,17 @@ with $K = 5$ and under the regime-specific seasonality signal for Sapporo and th
 <br>
 
 <p><strong>Model results</strong></p> 
-
+The figure below report the key results from the model 
+<ul>
+    <li>Top: yearly random effcts of the hottest regime, that is the distribution of the vectors $\alpha_{5, year(t)}$. 
+    Tokyo, Fukuoka, and Naha exhibit the largest anomalies, Sapporo while Niigata remain more stable.</li>
+    <li>Central:  maximum daily temperatures and the estimated regime-specific means (grey lines) for the 2023 year. 
+           The temperature points are coloured according to the probability of being in the hottest regime. At the floor of the plots, we report the period classified 
+          as heat wave using the proposed MS model (blue) and the threshold-based approach using the 85th (yellow), 90th (orange), and 95th(red) percentiles.   
+          The curves well captures the seasonal signal, with peaks in July–August. Tokyo exhibit the highest extremes, crossing 35°C. </li>
+    <li>Bottom: estimated transition probability matrix. The diagonal dominates in all cities, confirming strong regime persistence, with Tokyo and Fukuoka
+           exhibiting the strongest persistence in the hottest regimes.</li>       
+</ul>
 <img src="images/combined1_github.png" style="margin: 0 auto; border-collapse: separate; border-spacing: 10px 6px;">
 
 <br>
