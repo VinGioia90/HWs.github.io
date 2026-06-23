@@ -337,7 +337,7 @@ Similarly, although Naha (in the Okinawa region) is classified as having a humid
     <td style="padding: 1px 2px;">43°03.6′</td>
     <td style="padding: 1px 2px;">141°19.7′</td>
     <td style="padding: 1px 2px;">17.4 m</td>
-    <td style="padding: 1px 2px;">Dfb</td>
+    <td style="padding: 1px 2px;">Dfb/Dfa</td>
   </tr>
   <tr>
     <td style="padding: 1px 2px;">Niigata</td>
@@ -377,8 +377,8 @@ Similarly, although Naha (in the Okinawa region) is classified as having a humid
 <p><strong>Model evaluation</strong></p> 
 <p>We run the models for $K \in \{3,4,5\}$ and all the stations described above, under the settings specified in <a href="Model.html"  target="_blank"> MS Model</a>
 by assuming a regime-invariant seasonality component, that is $u_{1i} = \ldots = u_{Ki} = u_i\,, \quad \text{for} \quad i = 1, \ldots, r\,$.   
-Some few stations required refinements in the prior settings, in particular reducing the scale hyperparameter of $\sigma_{year}$ and the location hyperparameter of $\delta_k$, for $k \in \{1, \ldots, K\}$.            
-Model diagnostics do not reveal problems, the chains mix well, the values of $\hat R$ are very close to one for all the model parameters and the $n_{eff}$ are large enough to carry out statistical inference. </p> 
+Some few stations required refinements in the prior settings, in particular reducing the scale hyperparameter of $\sigma_{year}$ and of $\delta_k$, for $k \in \{1, \ldots, K\}$, the latter combined with 
+raising the location of $\delta_k$. Model diagnostics do not reveal problems, the chains mix well, the values of $\hat R$ are very close to one for all the model parameters and the $n_{eff}$ are large enough to carry out statistical inference. </p> 
 
 <p> We analyse the model performance by using the LOOIC by varing $K$, along with the differences in ELPD and the associate standard errors. 
 The results in the table below show a consistent improvement in model fit when increasing $K$. 
@@ -403,12 +403,12 @@ with $K = 5$ and under the regime-specific seasonality signal for Sapporo and th
   <tbody>
     <tr>
       <td rowspan="2" style="padding: 6px 16px;">3</td>
-      <td style="padding: 1px 12px;">LOOIC</td>
-      <td style="padding: 1px 12px;">23134.5</td>
-      <td style="padding: 1px 12px;">22177.8</td>
-      <td style="padding: 1px 12px;">22088.2</td>
-      <td style="padding: 1px 12px;">20196.0</td>
-      <td style="padding: 1px 12px;">14128.8</td>
+      <td style="padding: 1px 2px;">LOOIC</td>
+      <td style="padding: 1px 2px;">23134.5</td>
+      <td style="padding: 1px 2px;">22177.8</td>
+      <td style="padding: 1px 2px;">22088.2</td>
+      <td style="padding: 1px 2px;">20196.0</td>
+      <td style="padding: 1px 2px;">14128.8</td>
     </tr>
     <tr>
       <td style="padding: 1px 2px;">ΔELPD (SE)</td>
