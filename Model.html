@@ -326,7 +326,7 @@ For comprehensive treatments of MS models, see  <a href="References.html"  targe
 $\delta_{jk} = {\rm Pr}\left(S_t=k|S_{t-1}=j\right)$, for $j,k = 1, \ldots, K$, that are the entries of the stochastic $K \times K$ transition probability matrix $\boldsymbol \Delta$. 
 Finally, the  process $\{S_t\}_{t \geq 0}$ is fully specified through the initial probability vector, $\boldsymbol \pi^0$, with $\pi^{0}_{k} = {\rm Pr}(S_0=k)$, for $k = 1, \ldots, K$. </p>     
         
-<p> In this work, we consider a sparse transition probability matrix structures $\boldsymbol \Delta$ only allowing transitions among regimes with a maximum distance of two steps. 
+<p> In this work, we consider a sparse transition probability matrix structure $\boldsymbol \Delta$, only allowing transitions among regimes with a maximum distance of two steps. 
 More precisely, we assume $\delta_{jk}\neq 0$ if and only if $j=1,\ldots,K, \, k\in\omega_j$, with
 $\omega_j= \{k:\max(1,j-2)\le k\le \min(j+2,K)\}$. This leads to </p>
 $$
@@ -362,8 +362,8 @@ with $\tilde \omega_j = \omega_j \setminus \{j\}$. </p>
 <p><strong>Observable stochastic process</strong></p>
 For the observable process $\{Y_t\}_{t \geq 1}$, we assume that (i) the $Y_t$'s are conditionally independent given $S_t$ and the covariate information $\mathbf x_t$, and 
        (ii) the conditional (to the state) distribution follows a Normal distribution $Y_t|S_t=k; \mathbf{x}_t \sim \mathcal{N}(\mu_{kt},\sigma_{k})$,  for $k=1, \ldots, K$.
-We let the regime-specific location parameters $\mu_{kt}$ to vary as a function of the covariates, while the scale parameters $\sigma_k$ to be covariate-free,  for $k=1, \ldots, K$.   
-In particular the  location parameters $\mu_{kt}$ are modelled in a semi-parametric way as        
+We let the regime-specific location parameters $\mu_{kt}$ vary as a function of the covariates, while the scale parameters $\sigma_k$ are covariate-free,  for $k=1, \ldots, K$.   
+In particular, the  location parameters $\mu_{kt}$ are modelled in a semi-parametric way as        
        
 \begin{equation} \label{eq:lpGENERAL}
 \mu_{kt} = \mu_k + \alpha_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,
@@ -397,7 +397,7 @@ with $\mathcal{I}_{t}$ the information available up to time $t$, and $\mathcal{\
 <br>       
 <p><strong>Priors</strong></p> 
        
-<p>The regime-specific yearly random effects are build hierarchically as 
+<p>The regime-specific conditional means are built hierarchically as 
       $$\mu_{kt} = \mu_k + \alpha_{k,year(t)} + \sum_{i=1}^{r}b_i(doy_{t}) u_{ki}\,, \quad k = 1,\ldots, K,\,\, t = 1, \ldots T,$$
  where 
   <ul>
@@ -427,9 +427,9 @@ with $\mathcal{I}_{t}$ the information available up to time $t$, and $\mathcal{\
 <p><strong>Simulations, model checking and evaluation</strong></p> 
 <p>Model simulations are carried out using Markov Chain Monte Carlo (MCMC) methods, in particular through the No-U-Turn Sampler extension to the Hamiltonian Monte Carlo 
 <a href="References.html"  target="_blank"> (Hoffman and Gelman, 2014)</a>, as implemented in the  probabilistic programming language <a href="References.html"  target="_blank"> Stan (2014)</a>. 
-We ran four chains for 2000 iterations for each model by considering as warm-up period the first half of each chain. The remaining algorithm parameters are left to default settings.</p>  
+We ran four chains for 2000 iterations for each model by considering the first half of each chain as warm-up period. The remaining algorithm parameters are left to default settings.</p>  
        
-<p>MCMC model output diagnostics are analyzed through:
+<p>MCMC model output diagnostics are analysed through:
 <ul>
     <li> Standard graphical tools: traceplots and autocorrelation function plots; </li>
     <li> Summaries of the posterior distributions; </li>
