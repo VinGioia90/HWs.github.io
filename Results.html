@@ -318,7 +318,7 @@ among them (see an example from JMA available at the <a href="https://www.data.j
 Namely, cities located on the eastern coast of Japan exhibit distinct climatic characteristics compared to those facing the Sea of Japan <a href="References.html"  target="_blank"> (Ito et al.,2022)</a>. 
 Similarly, although Naha (in the Okinawa region) is classified as having a humid subtropical climate, it is influenced by features typically associated with tropical monsoonal climate conditions.  </p>
 
-<img src="images/koppen_giappone2_github.png" style="max-height: 450px; width: auto; display: block; margin: 0 auto;" />
+<img src="images/koppen_giappone2_githubNEW.png" style="max-height: 450px; width: auto; display: block; margin: 0 auto;" />
 
 <table style="margin: 0 auto; border-collapse: separate; border-spacing: 10px 6px; font-size: 12px;">
        
@@ -455,23 +455,29 @@ with $K = 5$ and under the regime-specific seasonality signal for Sapporo and th
   </tbody>
 </table>
 
-<br>
+<br> <br>
 
 <p><strong>Model results</strong></p> 
-The figure below report the key results from the model 
+<p>The figures below report the key results from the model 
 <ul>
     <li>Top: yearly random effcts of the hottest regime, that is the distribution of the vectors $\alpha_{5, year(t)}$. 
     Tokyo, Fukuoka, and Naha exhibit the largest anomalies, Sapporo while Niigata remain more stable.</li>
     <li>Central:  maximum daily temperatures and the estimated regime-specific means (grey lines) for the 2023 year. 
            The temperature points are coloured according to the probability of being in the hottest regime. At the floor of the plots, we report the period classified 
-          as heat wave using the proposed MS model (blue) and the threshold-based approach using the 85th (yellow), 90th (orange), and 95th(red) percentiles.   
+          as heat wave using the proposed MS model (Max Prob, blue) and the threshold-based (HWr) approach using the 85th (yellow), 90th (orange), and 95th(red) percentiles.   
           The curves well captures the seasonal signal, with peaks in July–August. Tokyo exhibit the highest extremes, crossing 35°C. </li>
     <li>Bottom: estimated transition probability matrix. The diagonal dominates in all cities, confirming strong regime persistence, with Tokyo and Fukuoka
            exhibiting the strongest persistence in the hottest regimes.</li>       
-</ul>
+</ul></p>
 <img src="images/combined1_github.png" style="margin: 0 auto; border-collapse: separate; border-spacing: 10px 6px;">
 
-<br>
+<br> <br>
+
+<p>The figures below provide a graphical comparison of the heat wave classification results between the MS and HWr approaches. In particular, we report the yearly number of heat waves 
+and the number of days in heat wave, along with heatmaps showing the agreement between the two approaches. 
+The shaded areas represent heatwave metrics defined according to the threshold-based approach at three quantile thresholds (85th, 90th, 95th percentile), 
+and the Max Prob estimates align most closely with the 90th percentile across all cities, with the the heatmaps confirming no strong systematic bias.</p>
+
 
 <img src="images/combined2_github.png" style="margin: 0 auto; border-collapse: separate; border-spacing: 10px 6px;">
 
