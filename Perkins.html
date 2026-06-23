@@ -313,13 +313,13 @@ $(document).ready(function () {
     <li> $h_s$ and $h_e$: first and last year of observations  </li>    
  </ul>          
 
-The moving-window is usually set to 15 days ($D=7$) and common choices for the percentiles are the 85th, 90th, and 95th. The latter determines the severity of the detected events, 
-with higher thresholds identifying fewer but more extreme episodes. In addition, the number of consecutive days can be let to vary. </p>   
+The moving window is usually set to 15 days ($D=7$), and common choices for the percentiles are the 85th, 90th, and 95th. The latter determines the severity of the detected events, 
+with higher thresholds identifying fewer but more extreme episodes. In addition, the number of consecutive days can be set to a different value.   </p>   
 
  <p> As an illustration of the empirical quantile-based approach, the figure below represent the maximum daily temperatures (May–September) over 30 years (1995-2024) for Tokyo. 
-The blue lines are the temperature trajectories across all the years. The red dotted line represents the 90th percentile threshold. 
-The shaded band highlights the 15-days moving window used to compute the threshold. 
-The histogram shows the temperature distribution within that 15-days window, with the dashed line marking the 90th percentile threshold.  </p>      
+The blue lines are the temperature trajectories across all the years. The red dotted line represent the 90th percentile threshold. 
+The shaded band highlights the 15-day moving window used to compute the threshold. 
+The histogram shows the temperature distribution within that 15-day window, with the dashed line marking the 90th percentile threshold.  </p>      
 <br>
 <center>
 <figure>
@@ -332,9 +332,9 @@ The histogram shows the temperature distribution within that 15-days window, wit
        
  <p> The plot below illustrates the heat waves detected using the empirical quantile-based threshold approach for two years (2010 and 2024) in Tokyo.  
 The daily maximum temperatures (May–September) are depicted using grey points.  
-The dashed red line corresponds to the 90th percentile threshold and the blu points indicate days belonging to a heat wave (3 or more consecutive days exceeding the threshold).  
+The dashed red line corresponds to the 90th percentile threshold, and the blue points indicate days belonging to a heat wave (3 or more consecutive days exceeding the threshold).  
 Under this setting, 3 and 5 heat waves are detected in 2010 and 2024, respectively, leading to 19 and 33 days in heat wave.  </p>    
- <br> <br> <br>
+ <br> 
 <center>
 <figure>
     <img src="images/Perkins20102024.png"
